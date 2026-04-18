@@ -45,14 +45,32 @@ export const systemColors: Record<SystemSlug, string> = {
   integration: 'from-sky-500 to-sky-600',
 };
 
-/** Two UI-style mock images per system (detail page gallery). */
-export const systemSpecImages: Record<SystemSlug, readonly [string, string]> =
-  Object.fromEntries(
-    systemSlugs.map((slug) => [
-      slug,
-      [`/systems/specs/${slug}-1.svg`, `/systems/specs/${slug}-2.svg`] as const,
-    ])
-  ) as Record<SystemSlug, readonly [string, string]>;
+/**
+ * Thematic stock photos (homepage cards + detail gallery).
+ * Unsplash License: https://unsplash.com/license — free use including commercial;
+ * attribution appreciated; do not compile into a competing photo service.
+ */
+function stockPhoto(id: string, width = 1200) {
+  return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=82`;
+}
+
+export const UNSPLASH_LICENSE_URL = 'https://unsplash.com/license';
+
+/** IDs verified via HEAD against images.unsplash.com (invalid IDs return 404 in production). */
+export const systemSpecImages: Record<SystemSlug, readonly [string, string]> = {
+  hr: [stockPhoto('photo-1522071820081-009f0129c71c'), stockPhoto('photo-1551434678-e076c223a692')],
+  attendance: [stockPhoto('photo-1486312338219-ce68d2c6f44d'), stockPhoto('photo-1521737604893-d14cc237f11d')],
+  financial: [stockPhoto('photo-1551288049-bebda4e38f71'), stockPhoto('photo-1554224154-22dec7ec8818')],
+  archiving: [stockPhoto('photo-1450101499163-c8848c66ca85'), stockPhoto('photo-1454165804606-c3d57bc86b40')],
+  procurement: [stockPhoto('photo-1556742049-0cfed4f6a45d'), stockPhoto('photo-1556761175-4b46a572b786')],
+  communications: [stockPhoto('photo-1563986768609-322da13575f3'), stockPhoto('photo-1531482615713-2afd69097998')],
+  warehouse: [stockPhoto('photo-1581092160562-40aa08e78837'), stockPhoto('photo-1553413077-190dd305871c')],
+  'self-service': [stockPhoto('photo-1517694712202-14dd9538aa97'), stockPhoto('photo-1523240795612-9a054b0db644')],
+  biometric: [stockPhoto('photo-1555949963-aa79dcee981c'), stockPhoto('photo-1581091226825-a6a2a5aee158')],
+  access: [stockPhoto('photo-1506126613408-eca07ce68773'), stockPhoto('photo-1486406146926-c627a92ad1ab')],
+  mobile: [stockPhoto('photo-1512941937669-90a1b58e7e9c'), stockPhoto('photo-1553877522-43269d4ea984')],
+  integration: [stockPhoto('photo-1460925895917-afdab827c52f'), stockPhoto('photo-1544197150-b99a580bb7a8')],
+};
 
 /** Homepage service cards: same primary mock as specs page image 1 (single source). */
 export const systemCoverImages: Record<SystemSlug, string> = Object.fromEntries(

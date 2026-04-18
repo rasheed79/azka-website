@@ -148,7 +148,9 @@
     "links_title": "روابط سريعة",
     "services_title": "خدماتنا",
     "contact_title": "تواصل معنا",
-    "rights": "جميع الحقوق محفوظة لشركة أزكى لتقنية المعلومات"
+    "rights": "جميع الحقوق محفوظة لشركة أزكى لتقنية المعلومات",
+    "photo_credit": "صور الأنظمة من مساهمي Unsplash، مجانية للاستخدام وفق",
+    "photo_credit_license": "ترخيص Unsplash"
   },
   "chatbot": {
     "title": "مساعد أزكى",

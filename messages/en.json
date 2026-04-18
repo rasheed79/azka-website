@@ -148,7 +148,9 @@
     "links_title": "Quick Links",
     "services_title": "Our Services",
     "contact_title": "Contact Us",
-    "rights": "All rights reserved — Azka for Information Technology"
+    "rights": "All rights reserved — Azka for Information Technology",
+    "photo_credit": "System photos are from Unsplash contributors, free to use under the",
+    "photo_credit_license": "Unsplash License"
   },
   "chatbot": {
     "title": "Azka Assistant",

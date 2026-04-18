@@ -91,7 +91,6 @@ export default async function SystemPage({ params }: PageProps) {
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 50vw"
-                    unoptimized
                   />
                 </figure>
               );

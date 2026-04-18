@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import Image from 'next/image';
+import { UNSPLASH_LICENSE_URL } from '@/lib/systems';
 
 function LinkedinIcon() {
   return (
@@ -173,6 +174,19 @@ export default function Footer({ locale }: FooterProps) {
             </span>
           </div>
         </div>
+
+        <p className="mt-8 text-center text-[11px] text-slate-500 dark:text-slate-500 leading-relaxed max-w-3xl mx-auto px-4">
+          {t('photo_credit')}{' '}
+          <a
+            href={UNSPLASH_LICENSE_URL}
+            className="text-green-700 underline decoration-green-600/40 underline-offset-2 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('photo_credit_license')}
+          </a>
+          .
+        </p>
       </div>
     </footer>
   );
