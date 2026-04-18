@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { systemSlugs, systemIcons, systemColors, type SystemSlug } from '@/lib/systems';
+import Image from 'next/image';
+import { systemSlugs, systemIcons, systemColors, systemSpecImages, type SystemSlug } from '@/lib/systems';
 import { ArrowRight, ArrowLeft, CheckCircle2, Zap } from 'lucide-react';
 import Link from 'next/link';
 import * as LucideIcons from 'lucide-react';
@@ -65,6 +66,38 @@ export default async function SystemPage({ params }: PageProps) {
             {tDetails('description')}
           </p>
         </div>
+
+        <section
+          className="mb-10 sm:mb-14"
+          aria-labelledby="system-spec-gallery-heading"
+        >
+          <h2
+            id="system-spec-gallery-heading"
+            className="text-lg font-bold text-slate-900 dark:text-white mb-4"
+          >
+            {t('spec_gallery')}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {([0, 1] as const).map((idx) => {
+              const src = systemSpecImages[typedSlug][idx];
+              return (
+                <figure
+                  key={src}
+                  className="relative aspect-video w-full overflow-hidden rounded-2xl border border-emerald-200/70 bg-slate-100 dark:border-slate-700/50 dark:bg-slate-900/60 shadow-sm dark:shadow-none"
+                >
+                  <Image
+                    src={src}
+                    alt={`${tDetails('name')} — ${t('spec_alt', { index: idx + 1 })}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    unoptimized
+                  />
+                </figure>
+              );
+            })}
+          </div>
+        </section>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 mb-10 sm:mb-14">
           {/* Features */}

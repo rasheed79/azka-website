@@ -46,6 +46,15 @@ export const systemColors: Record<SystemSlug, string> = {
 };
 
 /** Cover art shown on each system card (replace with photos under /public/systems/ if desired). */
+/** Two illustrative images per system (detail page / specifications gallery). */
+export const systemSpecImages: Record<SystemSlug, readonly [string, string]> =
+  Object.fromEntries(
+    systemSlugs.map((slug) => [
+      slug,
+      [`/systems/specs/${slug}-1.svg`, `/systems/specs/${slug}-2.svg`] as const,
+    ])
+  ) as Record<SystemSlug, readonly [string, string]>;
+
 export const systemCoverImages: Record<SystemSlug, string> = {
   hr: '/systems/hr.svg',
   attendance: '/systems/attendance.svg',
