@@ -1,1 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0ea5e9"/><stop offset="1" stop-color="#0369a1"/></linearGradient></defs><rect width="640" height="360" rx="14" fill="url(#g)"/><rect x="48" y="218" width="140" height="86" rx="10" fill="#fff" opacity=".22"/><rect x="206" y="178" width="140" height="126" rx="10" fill="#fff" opacity=".32"/><rect x="364" y="138" width="140" height="166" rx="10" fill="#fff" opacity=".42"/><rect x="522" y="198" width="90" height="106" rx="10" fill="#fff" opacity=".26"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400">
+<defs>
+  <filter id="sd" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity=".22"/></filter>
+</defs>
+<rect x="12" y="12" width="696" height="376" rx="14" fill="#334155" filter="url(#sd)"/>
+<rect x="20" y="20" width="680" height="360" rx="10" fill="#ffffff"/>
+<rect x="20" y="20" width="680" height="44" rx="10" fill="#0f172a"/>
+<rect x="20" y="20" width="5" height="44" rx="10 0 0 10" fill="#0284c7"/>
+<circle cx="42" cy="42" r="4.5" fill="#ef4444"/><circle cx="58" cy="42" r="4.5" fill="#eab308"/><circle cx="74" cy="42" r="4.5" fill="#22c55e"/>
+<text x="96" y="47" fill="#f1f5f9" font-family="Segoe UI,system-ui,sans-serif" font-size="14" font-weight="600">Integration — Map</text>
+<g transform="translate(28 78)">
+<defs>
+  <marker id="int-arr-a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><polygon points="0 0, 8 4, 0 8" fill="#0284c7"/></marker>
+  <marker id="int-arr-b" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><polygon points="0 0, 8 4, 0 8" fill="#0284c7"/></marker>
+</defs>
+<rect x="40" y="60" width="160" height="100" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+<text x="70" y="95" fill="#64748b" font-family="Segoe UI,sans-serif" font-size="11">ERP</text>
+<text x="70" y="112" fill="#64748b" font-family="Segoe UI,sans-serif" font-size="10">SAP / Oracle</text>
+<path d="M210 110 L280 110" stroke="#0284c7" stroke-width="4" marker-end="url(#int-arr-a)"/>
+<rect x="290" y="50" width="180" height="120" rx="10" fill="#fff" stroke="#0284c7" stroke-width="2"/>
+<text x="320" y="100" fill="#0f172a" font-family="Segoe UI,sans-serif" font-size="12" font-weight="700">Integration Hub</text>
+<text x="320" y="120" fill="#64748b" font-family="Segoe UI,sans-serif" font-size="10">Transform &amp; route</text>
+<path d="M480 110 L550 110" stroke="#0284c7" stroke-width="4" marker-end="url(#int-arr-b)"/>
+<rect x="560" y="60" width="140" height="100" rx="10" fill="#f1f5f9" stroke="#94a3b8"/>
+<text x="590" y="100" fill="#64748b" font-family="Segoe UI,sans-serif" font-size="11">HR / Payroll</text>
+<rect x="40" y="200" width="664" height="60" rx="8" fill="#0f172a"/>
+<text x="56" y="236" fill="#94a3b8" font-family="Segoe UI,sans-serif" font-size="11">Last job: Employee sync — OK (1.2k rows)</text>
+</g>
+</svg>

@@ -45,8 +45,7 @@ export const systemColors: Record<SystemSlug, string> = {
   integration: 'from-sky-500 to-sky-600',
 };
 
-/** Cover art shown on each system card (replace with photos under /public/systems/ if desired). */
-/** Two illustrative images per system (detail page / specifications gallery). */
+/** Two UI-style mock images per system (detail page gallery). */
 export const systemSpecImages: Record<SystemSlug, readonly [string, string]> =
   Object.fromEntries(
     systemSlugs.map((slug) => [
@@ -55,20 +54,10 @@ export const systemSpecImages: Record<SystemSlug, readonly [string, string]> =
     ])
   ) as Record<SystemSlug, readonly [string, string]>;
 
-export const systemCoverImages: Record<SystemSlug, string> = {
-  hr: '/systems/hr.svg',
-  attendance: '/systems/attendance.svg',
-  financial: '/systems/financial.svg',
-  archiving: '/systems/archiving.svg',
-  procurement: '/systems/procurement.svg',
-  communications: '/systems/communications.svg',
-  warehouse: '/systems/warehouse.svg',
-  'self-service': '/systems/self-service.svg',
-  biometric: '/systems/biometric.svg',
-  access: '/systems/access.svg',
-  mobile: '/systems/mobile.svg',
-  integration: '/systems/integration.svg',
-};
+/** Homepage service cards: same primary mock as specs page image 1 (single source). */
+export const systemCoverImages: Record<SystemSlug, string> = Object.fromEntries(
+  systemSlugs.map((slug) => [slug, systemSpecImages[slug][0]])
+) as Record<SystemSlug, string>;
 
 export const systemBgColors: Record<SystemSlug, string> = {
   hr: 'bg-blue-500/10 border-blue-500/20',

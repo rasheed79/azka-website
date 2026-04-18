@@ -39,7 +39,7 @@ export default function Services({ locale }: ServicesProps) {
                   href={`/${locale}/systems/${slug}`}
                   className="group block overflow-hidden rounded-2xl bg-white/90 border border-emerald-200/70 hover:border-green-500/50 hover:bg-emerald-50/80 dark:bg-slate-800/50 dark:border-slate-700/50 dark:hover:border-green-500/40 dark:hover:bg-slate-800/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-900/5 dark:hover:shadow-blue-500/5 shadow-sm dark:shadow-none"
                 >
-                  <div className="relative aspect-[400/220] w-full overflow-hidden bg-slate-100 dark:bg-slate-900/80">
+                  <div className="relative aspect-[720/400] w-full overflow-hidden bg-slate-100 dark:bg-slate-900/80">
                     <Image
                       src={coverSrc}
                       alt={name}
