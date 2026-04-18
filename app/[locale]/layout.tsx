@@ -4,12 +4,15 @@ import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { cookies } from 'next/headers';
 import { routing } from '@/i18n/routing';
+import { cn } from '@/lib/utils';
+import { THEME_COOKIE } from '@/lib/theme';
 import '../globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/chatbot/ChatWidget';
-import Script from 'next/script';
+import ThemeHydrationSync from '@/components/ThemeHydrationSync';
 
 const notoKufiArabic = Noto_Kufi_Arabic({
   subsets: ['arabic'],
@@ -85,50 +88,27 @@ export default async function LocaleLayout({
   const isRtl = locale === 'ar';
   const fontClass = isRtl ? notoKufiArabic.variable : inter.variable;
 
+  const cookieStore = await cookies();
+  const isDark = cookieStore.get(THEME_COOKIE)?.value === 'dark';
+
   return (
     <html
       lang={locale}
       dir={isRtl ? 'rtl' : 'ltr'}
-      className={fontClass}
+      className={cn(fontClass, isDark && 'dark')}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
       style={{ scrollBehavior: 'smooth', fontFamily: isRtl ? 'var(--font-arabic)' : 'var(--font-inter)' }}
     >
       <head>
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var k='azka-theme';var s=localStorage.getItem(k);if(s==='dark')document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');}catch(e){}})();`,
-          }}
-        />
-        <Script
-          id="json-ld"
+        <link
+          rel="alternate"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'Azka for Information Technology',
-              alternateName: 'أزكى لتقنية المعلومات',
-              url: 'https://www.azka.com',
-              email: 'connect@azka.com',
-              telephone: '+966126500223',
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: 'P.O.Box 1485',
-                addressLocality: 'Jeddah',
-                postalCode: '21431',
-                addressCountry: 'SA',
-              },
-              foundingDate: '1989',
-              description:
-                'Azka for Information Technology provides planning, design, building, and management of automated systems in Saudi Arabia.',
-            }),
-          }}
+          href="/schema/organization.json"
         />
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
+        <ThemeHydrationSync />
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
           <main className="flex-1">{children}</main>

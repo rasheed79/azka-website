@@ -4,17 +4,17 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Moon, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { THEME_COOKIE, themeCookieHeader, type ThemePreference } from '@/lib/theme';
 
-const STORAGE_KEY = 'azka-theme';
-
-function applyDarkClass(nextDark: boolean) {
-  if (nextDark) {
-    document.documentElement.classList.add('dark');
-    localStorage.setItem(STORAGE_KEY, 'dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-    localStorage.setItem(STORAGE_KEY, 'light');
+function applyTheme(nextDark: boolean) {
+  const pref: ThemePreference = nextDark ? 'dark' : 'light';
+  document.documentElement.classList.toggle('dark', nextDark);
+  try {
+    localStorage.setItem(THEME_COOKIE, pref);
+  } catch {
+    /* ignore */
   }
+  document.cookie = themeCookieHeader(pref);
 }
 
 interface ThemeToggleProps {
@@ -34,7 +34,7 @@ export default function ThemeToggle({ className }: ThemeToggleProps) {
   const toggle = () => {
     const next = !document.documentElement.classList.contains('dark');
     setDark(next);
-    applyDarkClass(next);
+    applyTheme(next);
   };
 
   if (!mounted) {

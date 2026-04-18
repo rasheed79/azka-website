@@ -2,14 +2,10 @@
 
 import { useTranslations } from 'next-intl';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection';
-import { systemSlugs, systemIcons, systemBgColors, type SystemSlug } from '@/lib/systems';
-import { ArrowUpRight, Users, Clock, BarChart3, Archive, ShoppingCart, MessageSquare, Package, UserCheck, Fingerprint, KeyRound, Smartphone, GitMerge } from 'lucide-react';
+import { systemSlugs, systemCoverImages, type SystemSlug } from '@/lib/systems';
+import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-
-const iconMap = {
-  Users, Clock, BarChart3, Archive, ShoppingCart, MessageSquare,
-  Package, UserCheck, Fingerprint, KeyRound, Smartphone, GitMerge,
-};
+import Image from 'next/image';
 
 interface ServicesProps {
   locale: string;
@@ -33,28 +29,35 @@ export default function Services({ locale }: ServicesProps) {
         {/* Grid */}
         <StaggerContainer staggerDelay={0.07} className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
           {systemSlugs.map((slug: SystemSlug) => {
-            const iconName = systemIcons[slug] as keyof typeof iconMap;
-            const Icon = iconMap[iconName];
-            const bgClass = systemBgColors[slug];
             const name = t(`items.${slug}.name`);
             const desc = t(`items.${slug}.desc`);
+            const coverSrc = systemCoverImages[slug];
 
             return (
               <StaggerItem key={slug}>
                 <Link
                   href={`/${locale}/systems/${slug}`}
-                  className="group block p-6 rounded-2xl bg-white/90 border border-emerald-200/70 hover:border-green-500/50 hover:bg-emerald-50/80 dark:bg-slate-800/50 dark:border-slate-700/50 dark:hover:border-green-500/40 dark:hover:bg-slate-800/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-900/5 dark:hover:shadow-blue-500/5 shadow-sm dark:shadow-none"
+                  className="group block overflow-hidden rounded-2xl bg-white/90 border border-emerald-200/70 hover:border-green-500/50 hover:bg-emerald-50/80 dark:bg-slate-800/50 dark:border-slate-700/50 dark:hover:border-green-500/40 dark:hover:bg-slate-800/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-900/5 dark:hover:shadow-blue-500/5 shadow-sm dark:shadow-none"
                 >
-                  <div className={`w-12 h-12 rounded-xl ${bgClass} border flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-200`}>
-                    <Icon size={22} className="text-current" />
+                  <div className="relative aspect-[400/220] w-full overflow-hidden bg-slate-100 dark:bg-slate-900/80">
+                    <Image
+                      src={coverSrc}
+                      alt={name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      unoptimized
+                    />
                   </div>
-                  <h3 className="text-slate-900 dark:text-white font-semibold text-base mb-2 group-hover:text-green-700 dark:group-hover:text-green-300 transition-colors leading-snug">
-                    {name}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">{desc}</p>
-                  <div className="flex items-center gap-1 text-green-400 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    {t('learn_more')}
-                    <ArrowUpRight size={13} />
+                  <div className="p-5 sm:p-6">
+                    <h3 className="text-slate-900 dark:text-white font-semibold text-base mb-2 group-hover:text-green-700 dark:group-hover:text-green-300 transition-colors leading-snug">
+                      {name}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">{desc}</p>
+                    <div className="flex items-center gap-1 text-green-600 dark:text-green-400 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      {t('learn_more')}
+                      <ArrowUpRight size={13} />
+                    </div>
                   </div>
                 </Link>
               </StaggerItem>

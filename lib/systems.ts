@@ -45,6 +45,22 @@ export const systemColors: Record<SystemSlug, string> = {
   integration: 'from-sky-500 to-sky-600',
 };
 
+/** Cover art shown on each system card (replace with photos under /public/systems/ if desired). */
+export const systemCoverImages: Record<SystemSlug, string> = {
+  hr: '/systems/hr.svg',
+  attendance: '/systems/attendance.svg',
+  financial: '/systems/financial.svg',
+  archiving: '/systems/archiving.svg',
+  procurement: '/systems/procurement.svg',
+  communications: '/systems/communications.svg',
+  warehouse: '/systems/warehouse.svg',
+  'self-service': '/systems/self-service.svg',
+  biometric: '/systems/biometric.svg',
+  access: '/systems/access.svg',
+  mobile: '/systems/mobile.svg',
+  integration: '/systems/integration.svg',
+};
+
 export const systemBgColors: Record<SystemSlug, string> = {
   hr: 'bg-blue-500/10 border-blue-500/20',
   attendance: 'bg-purple-500/10 border-purple-500/20',

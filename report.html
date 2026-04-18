@@ -85,6 +85,29 @@
     .tech-table tr:nth-child(even) {
       background: #f9fafb;
     }
+    .notes-box {
+      background: #fffbeb;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 24px;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+    .notes-box ul {
+      padding-right: 18px;
+      margin-top: 10px;
+    }
+    .notes-box li {
+      margin-bottom: 10px;
+    }
+    .notes-box code {
+      font-family: Consolas, 'Courier New', monospace;
+      font-size: 12px;
+      background: #fef3c7;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
     .footer {
       margin-top: 40px;
       border-top: 1px solid #e5e7eb;
@@ -122,16 +145,52 @@
     <li>مساعد ذكي (Chatbot) يجيب على استفسارات الزوار باللغتين</li>
     <li>متوافق مع جميع الأجهزة: كمبيوتر، جوال، وتابلت</li>
     <li>مُهيَّأ لمحركات البحث (Google) بالكامل</li>
+    <li><strong>الوضع الفاتح والداكن</strong> مع زر تبديل وحفظ تفضيل المستخدم</li>
+    <li><strong>صورة غلاف</strong> لكل نظام في بطاقات قسم الخدمات (قابلة للاستبدال بصور فوتوغرافية)</li>
   </ul>
 
   <div class="section-title">التفاصيل التقنية</div>
   <table class="tech-table">
-    <tr><td>إطار العمل</td><td>Next.js 14 (App Router)</td></tr>
+    <tr><td>إطار العمل</td><td>Next.js 16 (App Router)</td></tr>
     <tr><td>التصميم</td><td>Tailwind CSS + shadcn/ui</td></tr>
     <tr><td>الاستضافة</td><td>Vercel — سحابي بدون سيرفر محلي</td></tr>
     <tr><td>الكود المصدري</td><td>github.com/rasheed79/azka-website</td></tr>
     <tr><td>التحديثات</td><td>تلقائية عند أي تعديل خلال أقل من دقيقة</td></tr>
   </table>
+
+  <div class="section-title">ملاحظات فنية وتطويرية (مكمّلة للتقرير)</div>
+  <div class="notes-box">
+    <p><strong>الوضع الفاتح والداكن (المظهر)</strong></p>
+    <ul>
+      <li>الوضع <strong>الفاتح</strong> هو الافتراضي عند أول زيارة.</li>
+      <li>زر تبديل المظهر (قمر / شمس) يظهر <strong>بجانب</strong> زر تغيير اللغة في شريط التنقل (سطح المكتب والجوال).</li>
+      <li>يُحفظ اختيار المستخدم في المتصفح تحت المفتاح <code>azka-theme</code> بالقيمتين <code>light</code> أو <code>dark</code>.</li>
+      <li>يُطبَّق الوضع الداكن بإضافة الصنف <code>dark</code> إلى عنصر <code>&lt;html&gt;</code>، مع ألوان مُعرَّفة في ملف الأنماط العامة للوضعين.</li>
+      <li>سكربت يعمل قبل التفاعل مع الصفحة لتفادي وميض ألوان خاطئة عند التحميل.</li>
+      <li>نصوص إتاحة زر المظهر مضافة في ملفي الرسائل <code>messages/ar.json</code> و <code>messages/en.json</code> تحت مفاتيح <code>theme_to_light</code> و <code>theme_to_dark</code>.</li>
+      <li>الصفحة الرئيسية، التذييل، نافذة المحادثة، صفحات الأنظمة، وصفحة الخطأ 404 مُحدَّثة لتناسب الوضعين الفاتح والداكن.</li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>بطاقات الأنظمة (قسم الخدمات)</strong></p>
+    <ul>
+      <li>كل بطاقة من الـ 12 تعرض <strong>صورة غلاف</strong> في أعلى البطاقة تمثّل النظام بصرياً.</li>
+      <li>الملفات الحالية بصيغة SVG في المسار <code>public/systems/</code> (مثال: <code>hr.svg</code>، <code>attendance.svg</code>، …).</li>
+      <li>ربط الملفات بالأنظمة يتم من ملف التكوين <code>lib/systems.ts</code> عبر الخريطة <code>systemCoverImages</code>؛ يمكن استبدال أي مسار بصورة <strong>WebP أو PNG</strong> دون تغيير الكود بشرط تحديث المسارات في نفس الخريطة.</li>
+      <li>استخدام مكوّن الصور في Next مع الخاصية <code>unoptimized</code> لملفات SVG لضمان العرض الموثوق.</li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>الشعار في شريط التنقل والتذييل</strong></p>
+    <ul>
+      <li>يُستخدم ملف <code>logo-white.png</code>؛ في الوضع الفاتح تُطبَّق معالجة بصرية (<code>brightness</code>) ليظهر الشعار بلون داكن على الخلفية الفاتحة.</li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>نماذج التواصل</strong></p>
+    <ul>
+      <li>نموذج «تواصل معنا» يعتمد على Formspree؛ يجب استبدال المعرف التجريبي <code>YOUR_FORM_ID</code> في الكود بمعرف النموذج الفعلي من موقع Formspree بعد إنشاء النموذج.</li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>تشغيل المشروع محلياً</strong></p>
+    <ul>
+      <li>من مجلد المشروع: <code>npm install</code> ثم <code>npm run dev</code> — يعمل الموقع عادة على <code>http://localhost:3000</code>.</li>
+    </ul>
+    <p style="margin-top: 14px; color: #666; font-size: 13px;">آخر تحديث لمحتوى الملاحظات: 18 أبريل 2026.</p>
+  </div>
 
   <div class="footer">
     <p>نرحب بملاحظاتكم وأي مقترحات للتطوير.</p>
