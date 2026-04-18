@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type MouseEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import { usePathname, useRouter, Link } from '@/i18n/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -38,20 +38,27 @@ export default function Navbar({ locale }: NavbarProps) {
   };
 
   const navLinks = [
-    { href: '#about', label: t('about') },
-    { href: '#services', label: t('services') },
-    { href: '#stats', label: t('stats') },
-    { href: '#contact', label: t('contact') },
+    { hash: 'about' as const, label: t('about') },
+    { hash: 'services' as const, label: t('services') },
+    { hash: 'stats' as const, label: t('stats') },
+    { hash: 'contact' as const, label: t('contact') },
   ];
 
-  const handleLinkClick = (href: string) => {
-    setMobileOpen(false);
-    // Small delay to allow menu to close before scrolling
-    setTimeout(() => {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 300);
-  };
+  const isHome = pathname === '/' || pathname === '';
+
+  const sectionHref = (hash: (typeof navLinks)[number]['hash']) =>
+    ({ pathname: '/', hash } as const);
+
+  const onSectionClick =
+    (hash: (typeof navLinks)[number]['hash']) => (e: MouseEvent<HTMLAnchorElement>) => {
+      setMobileOpen(false);
+      if (isHome) {
+        e.preventDefault();
+        window.setTimeout(() => {
+          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+        }, 280);
+      }
+    };
 
   return (
     <>
@@ -61,7 +68,7 @@ export default function Navbar({ locale }: NavbarProps) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={cn(
-          'fixed top-0 inset-x-0 z-50 transition-all duration-300',
+          'fixed top-0 inset-x-0 z-[70] transition-all duration-300',
           scrolled
             ? 'bg-white/90 dark:bg-[#0B1A10]/90 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/5 shadow-lg shadow-slate-900/5 dark:shadow-black/20'
             : 'bg-transparent'
@@ -84,13 +91,14 @@ export default function Navbar({ locale }: NavbarProps) {
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <Link
+                  key={link.hash}
+                  href={sectionHref(link.hash)}
+                  onClick={onSectionClick(link.hash)}
                   className="px-4 py-2 text-sm text-slate-700 hover:text-green-900 dark:text-slate-300 dark:hover:text-white rounded-lg hover:bg-slate-100/90 dark:hover:bg-white/5 transition-all duration-200"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -106,12 +114,13 @@ export default function Navbar({ locale }: NavbarProps) {
                   <span>{t('switchLang')}</span>
                 </button>
               </div>
-              <a
-                href="#contact"
+              <Link
+                href={sectionHref('contact')}
+                onClick={onSectionClick('contact')}
                 className="px-5 py-2 text-sm font-semibold text-white bg-green-700 hover:bg-green-600 rounded-lg transition-all shadow-lg shadow-green-600/20"
               >
                 {t('contact')}
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Buttons */}
@@ -148,7 +157,7 @@ export default function Navbar({ locale }: NavbarProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[60] bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
 
@@ -159,7 +168,7 @@ export default function Navbar({ locale }: NavbarProps) {
               exit={{ x: isRtl ? '-100%' : '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className={cn(
-                'fixed top-0 bottom-0 z-50 w-72 bg-emerald-50/95 dark:bg-[#0d2414] border-emerald-200/80 dark:border-slate-700/50 flex flex-col lg:hidden backdrop-blur-md',
+                'fixed top-0 bottom-0 z-[80] w-72 bg-emerald-50/95 dark:bg-[#0d2414] border-emerald-200/80 dark:border-slate-700/50 flex flex-col lg:hidden backdrop-blur-md',
                 isRtl ? 'left-0 border-r' : 'right-0 border-l'
               )}
             >
@@ -183,21 +192,21 @@ export default function Navbar({ locale }: NavbarProps) {
               {/* Links */}
               <nav className="flex-1 px-4 py-6 flex flex-col gap-1 overflow-y-auto">
                 {navLinks.map((link, i) => (
-                  <motion.a
-                    key={link.href}
-                    href={link.href}
+                  <motion.div
+                    key={link.hash}
                     initial={{ opacity: 0, x: isRtl ? -20 : 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.07 }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleLinkClick(link.href);
-                    }}
-                    className="flex items-center gap-3 px-4 py-3.5 text-base text-slate-700 hover:text-green-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-white/80 dark:hover:bg-white/5 transition-all"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
-                    {link.label}
-                  </motion.a>
+                    <Link
+                      href={sectionHref(link.hash)}
+                      onClick={onSectionClick(link.hash)}
+                      className="flex items-center gap-3 px-4 py-3.5 text-base text-slate-700 hover:text-green-900 dark:text-slate-300 dark:hover:text-white rounded-xl hover:bg-white/80 dark:hover:bg-white/5 transition-all"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
+                      {link.label}
+                    </Link>
+                  </motion.div>
                 ))}
               </nav>
 
@@ -210,13 +219,13 @@ export default function Navbar({ locale }: NavbarProps) {
                   <Globe size={16} />
                   <span>{t('switchLang')}</span>
                 </button>
-                <a
-                  href="#contact"
-                  onClick={(e) => { e.preventDefault(); handleLinkClick('#contact'); }}
+                <Link
+                  href={sectionHref('contact')}
+                  onClick={onSectionClick('contact')}
                   className="flex items-center justify-center w-full px-4 py-3 text-sm font-semibold text-white bg-green-700 hover:bg-green-600 rounded-xl transition-all shadow-lg shadow-green-600/20"
                 >
                   {t('contact')}
-                </a>
+                </Link>
               </div>
             </motion.div>
           </>
