@@ -49,8 +49,8 @@ export default function Contact() {
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-green-600/10 border border-green-500/20 text-green-400 text-xs font-medium uppercase tracking-wider mb-6">
             {t('badge')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5">{t('title')}</h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">{t('subtitle')}</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-5">{t('title')}</h2>
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">{t('subtitle')}</p>
         </AnimatedSection>
 
         <div className="grid lg:grid-cols-5 gap-10">
@@ -58,38 +58,38 @@ export default function Contact() {
           <AnimatedSection delay={0.1} className="lg:col-span-2 space-y-6">
             {/* Info Cards */}
             {contactItems.map(({ icon: Icon, label, href }) => (
-              <div key={label} className="flex items-start gap-4 p-5 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+              <div key={label} className="flex items-start gap-4 p-5 rounded-2xl bg-white/90 border border-emerald-200/70 dark:bg-slate-800/50 dark:border-slate-700/50 shadow-sm dark:shadow-none">
                 <div className="w-10 h-10 rounded-xl bg-green-600/10 border border-green-500/20 flex items-center justify-center flex-shrink-0">
                   <Icon size={18} className="text-green-400" />
                 </div>
                 {href ? (
-                  <a href={href} className="text-slate-300 hover:text-white text-sm leading-relaxed transition-colors" dir="ltr">
+                  <a href={href} className="text-slate-700 hover:text-green-900 dark:text-slate-300 dark:hover:text-white text-sm leading-relaxed transition-colors" dir="ltr">
                     {label}
                   </a>
                 ) : (
-                  <p className="text-slate-300 text-sm leading-relaxed">{label}</p>
+                  <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">{label}</p>
                 )}
               </div>
             ))}
 
             {/* Working Hours */}
-            <div className="p-5 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+            <div className="p-5 rounded-2xl bg-white/90 border border-emerald-200/70 dark:bg-slate-800/50 dark:border-slate-700/50 shadow-sm dark:shadow-none">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
                   <Clock size={18} className="text-amber-400" />
                 </div>
-                <h4 className="text-white font-semibold">{t('hours_title')}</h4>
+                <h4 className="text-slate-900 dark:text-white font-semibold">{t('hours_title')}</h4>
               </div>
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between text-slate-400">
+                <div className="flex justify-between text-slate-600 dark:text-slate-400">
                   <span>{t('hours_weekdays')}</span>
-                  <span className="text-slate-300" dir="ltr">{t('hours_weekdays_time')}</span>
+                  <span className="text-slate-800 dark:text-slate-300" dir="ltr">{t('hours_weekdays_time')}</span>
                 </div>
-                <div className="flex justify-between text-slate-400">
+                <div className="flex justify-between text-slate-600 dark:text-slate-400">
                   <span>{t('hours_saturday')}</span>
-                  <span className="text-slate-300" dir="ltr">{t('hours_saturday_time')}</span>
+                  <span className="text-slate-800 dark:text-slate-300" dir="ltr">{t('hours_saturday_time')}</span>
                 </div>
-                <div className="flex justify-between text-slate-400">
+                <div className="flex justify-between text-slate-600 dark:text-slate-400">
                   <span>{t('hours_friday')}</span>
                   <span className="text-rose-400">{t('hours_friday_time')}</span>
                 </div>
@@ -101,45 +101,45 @@ export default function Contact() {
           <AnimatedSection delay={0.2} className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="p-5 sm:p-8 rounded-2xl bg-slate-800/50 border border-slate-700/50 space-y-5"
+              className="p-5 sm:p-8 rounded-2xl bg-white/90 border border-emerald-200/70 dark:bg-slate-800/50 dark:border-slate-700/50 space-y-5 shadow-sm dark:shadow-none"
             >
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-slate-300 text-sm font-medium mb-2">{t('form_name')}</label>
+                  <label className="block text-slate-800 dark:text-slate-300 text-sm font-medium mb-2">{t('form_name')}</label>
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-600/50 text-white placeholder-slate-500 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/30 transition-all text-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-green-600 focus:ring-1 focus:ring-green-500/30 dark:bg-slate-900/60 dark:border-slate-600/50 dark:text-white transition-all text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-300 text-sm font-medium mb-2">{t('form_email')}</label>
+                  <label className="block text-slate-800 dark:text-slate-300 text-sm font-medium mb-2">{t('form_email')}</label>
                   <input
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-600/50 text-white placeholder-slate-500 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/30 transition-all text-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-green-600 focus:ring-1 focus:ring-green-500/30 dark:bg-slate-900/60 dark:border-slate-600/50 dark:text-white transition-all text-sm"
                     dir="ltr"
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-slate-300 text-sm font-medium mb-2">{t('form_subject')}</label>
+                <label className="block text-slate-800 dark:text-slate-300 text-sm font-medium mb-2">{t('form_subject')}</label>
                 <input
                   type="text"
                   name="subject"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-600/50 text-white placeholder-slate-500 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/30 transition-all text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-green-600 focus:ring-1 focus:ring-green-500/30 dark:bg-slate-900/60 dark:border-slate-600/50 dark:text-white transition-all text-sm"
                 />
               </div>
               <div>
-                <label className="block text-slate-300 text-sm font-medium mb-2">{t('form_message')}</label>
+                <label className="block text-slate-800 dark:text-slate-300 text-sm font-medium mb-2">{t('form_message')}</label>
                 <textarea
                   name="message"
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-600/50 text-white placeholder-slate-500 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500/30 transition-all text-sm resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-500 focus:outline-none focus:border-green-600 focus:ring-1 focus:ring-green-500/30 dark:bg-slate-900/60 dark:border-slate-600/50 dark:text-white transition-all text-sm resize-none"
                 />
               </div>
 

@@ -53,7 +53,7 @@ export default function Footer({ locale }: FooterProps) {
   ];
 
   return (
-    <footer className="bg-[#060F08] border-t border-slate-800/60">
+    <footer className="bg-emerald-100/80 border-t border-emerald-200/90 dark:bg-[#060F08] dark:border-slate-800/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -64,11 +64,11 @@ export default function Footer({ locale }: FooterProps) {
                 alt="أزكى لتقنية المعلومات"
                 width={150}
                 height={44}
-                className="h-11 w-auto object-contain"
+                className="h-11 w-auto object-contain brightness-0 dark:brightness-100"
               />
             </div>
             <p className="text-green-400 text-sm font-medium mb-3">{t('tagline')}</p>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">{t('description')}</p>
+            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">{t('description')}</p>
             {/* Social Icons */}
             <div className="flex items-center gap-3">
               {[
@@ -80,7 +80,7 @@ export default function Footer({ locale }: FooterProps) {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-green-700 border border-slate-700 hover:border-green-500 flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200 hover:scale-105"
+                  className="w-9 h-9 rounded-lg bg-white hover:bg-green-700 border border-emerald-200 hover:border-green-500 dark:bg-slate-800 dark:border-slate-700 flex items-center justify-center text-slate-600 hover:text-white dark:text-slate-400 dark:hover:text-white transition-all duration-200 hover:scale-105"
                 >
                   <Icon />
                 </a>
@@ -90,7 +90,7 @@ export default function Footer({ locale }: FooterProps) {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
+            <h3 className="text-slate-900 dark:text-white font-semibold mb-5 text-sm uppercase tracking-wider">
               {t('links_title')}
             </h3>
             <ul className="space-y-3">
@@ -98,7 +98,7 @@ export default function Footer({ locale }: FooterProps) {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-slate-400 hover:text-green-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-slate-600 hover:text-green-700 dark:text-slate-400 dark:hover:text-green-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-green-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.label}
@@ -110,7 +110,7 @@ export default function Footer({ locale }: FooterProps) {
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
+            <h3 className="text-slate-900 dark:text-white font-semibold mb-5 text-sm uppercase tracking-wider">
               {t('services_title')}
             </h3>
             <ul className="space-y-3">
@@ -118,7 +118,7 @@ export default function Footer({ locale }: FooterProps) {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-slate-400 hover:text-green-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-slate-600 hover:text-green-700 dark:text-slate-400 dark:hover:text-green-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-green-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.label}
@@ -130,29 +130,29 @@ export default function Footer({ locale }: FooterProps) {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
+            <h3 className="text-slate-900 dark:text-white font-semibold mb-5 text-sm uppercase tracking-wider">
               {t('contact_title')}
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-400 text-sm leading-relaxed">{tContact('info_address')}</span>
+                <span className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{tContact('info_address')}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-green-400 flex-shrink-0" />
-                <a href="tel:+96612600223" className="text-slate-400 hover:text-white text-sm transition-colors" dir="ltr">
+                <a href="tel:+96612600223" className="text-slate-600 hover:text-green-900 dark:text-slate-400 dark:hover:text-white text-sm transition-colors" dir="ltr">
                   {tContact('info_phone')}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-green-400 flex-shrink-0" />
-                <a href="mailto:connect@azka.com" className="text-slate-400 hover:text-white text-sm transition-colors">
+                <a href="mailto:connect@azka.com" className="text-slate-600 hover:text-green-900 dark:text-slate-400 dark:hover:text-white text-sm transition-colors">
                   {tContact('info_email')}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Clock size={16} className="text-green-400 mt-0.5 flex-shrink-0" />
-                <div className="text-slate-400 text-sm leading-relaxed">
+                <div className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                   <div>{tContact('hours_weekdays')}: {tContact('hours_weekdays_time')}</div>
                   <div>{tContact('hours_saturday')}: {tContact('hours_saturday_time')}</div>
                 </div>
@@ -162,13 +162,13 @@ export default function Footer({ locale }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-14 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm text-center">
+        <div className="mt-14 pt-8 border-t border-emerald-200/90 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-slate-600 dark:text-slate-500 text-sm text-center">
             © {new Date().getFullYear()} {t('rights')}
           </p>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-slate-500 text-xs">
+            <span className="text-slate-600 dark:text-slate-500 text-xs">
               {locale === 'ar' ? 'الموقع يعمل بشكل طبيعي' : 'All systems operational'}
             </span>
           </div>

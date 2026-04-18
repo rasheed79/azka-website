@@ -17,23 +17,42 @@
 }
 
 :root {
-  --background: #0B1A10;
-  --foreground: #F8FAFC;
+  --background: #f0fdf4;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --border: #bbf7d0;
+  --input: #ecfdf5;
+  --primary: #15803d;
+  --primary-foreground: #ffffff;
+  --secondary: #dcfce7;
+  --secondary-foreground: #14532d;
+  --muted: #ecfdf5;
+  --muted-foreground: #3f6212;
+  --accent: #d97706;
+  --accent-foreground: #0f172a;
+  --destructive: oklch(0.577 0.245 27.325);
+  --ring: #16a34a;
+  --radius: 0.75rem;
+}
+
+html.dark {
+  --background: #0b1a10;
+  --foreground: #f8fafc;
   --card: #122518;
-  --card-foreground: #F8FAFC;
-  --border: #1E3D28;
+  --card-foreground: #f8fafc;
+  --border: #1e3d28;
   --input: #122518;
-  --primary: #16A34A;
+  --primary: #16a34a;
   --primary-foreground: #ffffff;
   --secondary: #122518;
-  --secondary-foreground: #86EFAC;
+  --secondary-foreground: #86efac;
   --muted: #122518;
-  --muted-foreground: #4B7A5C;
-  --accent: #F59E0B;
-  --accent-foreground: #0B1A10;
+  --muted-foreground: #4b7a5c;
+  --accent: #f59e0b;
+  --accent-foreground: #0b1a10;
   --destructive: oklch(0.577 0.245 27.325);
-  --ring: #16A34A;
-  --radius: 0.75rem;
+  --ring: #16a34a;
 }
 
 @layer base {
@@ -47,8 +66,8 @@
   }
 
   body {
-    background-color: #0B1A10;
-    color: #F0FDF4;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: var(--font-sans), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -72,14 +91,20 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0B1A10;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #94a3b8;
   border-radius: 3px;
 }
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B82F6;
+  background: #3b82f6;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
 }
 
 /* Gradient text utility */
@@ -98,9 +123,14 @@
 /* Grid background pattern */
 .bg-grid {
   background-image:
+    linear-gradient(rgb(20 83 45 / 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(20 83 45 / 0.12) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+html.dark .bg-grid {
+  background-image:
     linear-gradient(rgba(30, 61, 40, 0.5) 1px, transparent 1px),
     linear-gradient(90deg, rgba(30, 61, 40, 0.5) 1px, transparent 1px);
-  background-size: 64px 64px;
 }
 
 /* Animated gradient orbs */
@@ -125,9 +155,13 @@
 
 /* Glass morphism */
 .glass {
-  background: rgba(30, 41, 59, 0.7);
+  background: rgb(255 255 255 / 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgb(187 247 208 / 0.8);
+}
+html.dark .glass {
+  background: rgba(30, 41, 59, 0.7);
   border: 1px solid rgba(51, 65, 85, 0.6);
 }
 

@@ -90,10 +90,18 @@ export default async function LocaleLayout({
       lang={locale}
       dir={isRtl ? 'rtl' : 'ltr'}
       className={fontClass}
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
       style={{ scrollBehavior: 'smooth', fontFamily: isRtl ? 'var(--font-arabic)' : 'var(--font-inter)' }}
     >
       <head>
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var k='azka-theme';var s=localStorage.getItem(k);if(s==='dark')document.documentElement.classList.add('dark');else document.documentElement.classList.remove('dark');}catch(e){}})();`,
+          }}
+        />
         <Script
           id="json-ld"
           type="application/ld+json"
@@ -120,7 +128,7 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#0B1A10] text-[#F0FDF4] antialiased">
+      <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
           <main className="flex-1">{children}</main>

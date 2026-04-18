@@ -4,7 +4,9 @@
     "services": "خدماتنا",
     "stats": "إحصائياتنا",
     "contact": "تواصل معنا",
-    "switchLang": "English"
+    "switchLang": "English",
+    "theme_to_light": "التبديل للوضع الفاتح",
+    "theme_to_dark": "التبديل للوضع الداكن"
   },
   "hero": {
     "badge": "شريك مايكروسوفت و IBM",

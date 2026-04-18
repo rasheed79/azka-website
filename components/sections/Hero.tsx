@@ -21,7 +21,7 @@ export default function Hero() {
       </div>
 
       {/* Radial gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#0B1A10]/80" />
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-emerald-50/90 dark:to-[#0B1A10]/80" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -44,9 +44,9 @@ export default function Hero() {
           className="mb-8"
         >
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold leading-tight tracking-tight">
-            <span className="text-white block">{t('title_1')}</span>
+            <span className="text-slate-900 dark:text-white block">{t('title_1')}</span>
             <span className="gradient-text block">{t('title_2')}</span>
-            <span className="text-white block">{t('title_3')}</span>
+            <span className="text-slate-900 dark:text-white block">{t('title_3')}</span>
           </h1>
         </motion.div>
 
@@ -55,7 +55,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-base sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-7 px-2"
+          className="text-base sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-7 px-2"
         >
           {t('subtitle')}
         </motion.p>
@@ -75,7 +75,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="px-8 py-4 text-base font-semibold text-slate-300 hover:text-white border border-slate-600 hover:border-slate-400 rounded-xl transition-all duration-200 hover:bg-white/5 text-center"
+            className="px-8 py-4 text-base font-semibold text-slate-700 hover:text-green-900 border border-slate-300 hover:border-slate-500 dark:text-slate-300 dark:hover:text-white dark:border-slate-600 dark:hover:border-slate-400 rounded-xl transition-all duration-200 hover:bg-white/80 dark:hover:bg-white/5 text-center"
           >
             {t('cta_secondary')}
           </a>
@@ -89,16 +89,16 @@ export default function Hero() {
           className="mt-10 mb-20 grid grid-cols-3 gap-4 max-w-lg mx-auto"
         >
           <div className="text-center">
-            <div className="text-2xl font-bold text-white" dir="ltr">77+</div>
-            <div className="text-xs text-slate-500 mt-1">{tStats('projects_label')}</div>
+            <div className="text-2xl font-bold text-slate-900 dark:text-white" dir="ltr">77+</div>
+            <div className="text-xs text-slate-500 dark:text-slate-500 mt-1">{tStats('projects_label')}</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-white" dir="ltr">35+</div>
-            <div className="text-xs text-slate-500 mt-1">{tStats('years_label')}</div>
+            <div className="text-2xl font-bold text-slate-900 dark:text-white" dir="ltr">35+</div>
+            <div className="text-xs text-slate-500 dark:text-slate-500 mt-1">{tStats('years_label')}</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-white" dir="ltr">67+</div>
-            <div className="text-xs text-slate-500 mt-1">{tStats('professionals_label')}</div>
+            <div className="text-2xl font-bold text-slate-900 dark:text-white" dir="ltr">67+</div>
+            <div className="text-xs text-slate-500 dark:text-slate-500 mt-1">{tStats('professionals_label')}</div>
           </div>
         </motion.div>
       </div>
@@ -110,12 +110,12 @@ export default function Hero() {
         transition={{ delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-slate-500 text-xs">{t('scroll')}</span>
+        <span className="text-slate-500 dark:text-slate-500 text-xs">{t('scroll')}</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
         >
-          <ArrowDown size={18} className="text-slate-500" />
+          <ArrowDown size={18} className="text-slate-500 dark:text-slate-500" />
         </motion.div>
       </motion.div>
     </section>

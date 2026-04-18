@@ -43,7 +43,7 @@ export default async function SystemPage({ params }: PageProps) {
         {/* Back */}
         <Link
           href={`/${locale}`}
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm mb-10 group transition-colors"
+          className="inline-flex items-center gap-2 text-slate-600 hover:text-green-800 dark:text-slate-400 dark:hover:text-white text-sm mb-10 group transition-colors"
         >
           <BackIcon size={16} className={`group-hover:translate-x-${isRtl ? '1' : '-1'} transition-transform`} />
           {t('back')}
@@ -55,27 +55,27 @@ export default async function SystemPage({ params }: PageProps) {
             <Icon size={30} className="text-white" />
           </div>
           <div className="mb-3">
-            <span className="text-xs font-medium text-slate-500 uppercase tracking-widest">{t('all_systems')}</span>
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-widest">{t('all_systems')}</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             {tDetails('name')}
           </h1>
           <p className="text-xl text-green-400 font-medium mb-6">{tDetails('tagline')}</p>
-          <p className="text-slate-400 leading-relaxed text-lg max-w-2xl">
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg max-w-2xl">
             {tDetails('description')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 mb-10 sm:mb-14">
           {/* Features */}
-          <div className="p-7 rounded-2xl bg-slate-800/50 border border-slate-700/50">
-            <h2 className="text-white font-bold text-xl mb-6 flex items-center gap-2">
+          <div className="p-7 rounded-2xl bg-white/90 border border-emerald-200/70 dark:bg-slate-800/50 dark:border-slate-700/50 shadow-sm dark:shadow-none">
+            <h2 className="text-slate-900 dark:text-white font-bold text-xl mb-6 flex items-center gap-2">
               <Zap size={18} className="text-green-400" />
               {t('features')}
             </h2>
             <ul className="space-y-3">
               {features.map((feature: string) => (
-                <li key={feature} className="flex items-start gap-3 text-slate-300 text-sm">
+                <li key={feature} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-sm">
                   <CheckCircle2 size={16} className="text-green-400 mt-0.5 flex-shrink-0" />
                   {feature}
                 </li>
@@ -84,14 +84,14 @@ export default async function SystemPage({ params }: PageProps) {
           </div>
 
           {/* Benefits */}
-          <div className="p-7 rounded-2xl bg-slate-800/50 border border-slate-700/50">
-            <h2 className="text-white font-bold text-xl mb-6 flex items-center gap-2">
+          <div className="p-7 rounded-2xl bg-white/90 border border-emerald-200/70 dark:bg-slate-800/50 dark:border-slate-700/50 shadow-sm dark:shadow-none">
+            <h2 className="text-slate-900 dark:text-white font-bold text-xl mb-6 flex items-center gap-2">
               <CheckCircle2 size={18} className="text-emerald-400" />
               {t('benefits')}
             </h2>
             <ul className="space-y-3">
               {benefits.map((benefit: string) => (
-                <li key={benefit} className="flex items-start gap-3 text-slate-300 text-sm">
+                <li key={benefit} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-sm">
                   <div className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   </div>
@@ -103,9 +103,9 @@ export default async function SystemPage({ params }: PageProps) {
         </div>
 
         {/* CTA */}
-        <div className="p-8 rounded-2xl bg-gradient-to-br from-green-700/20 to-blue-800/10 border border-green-500/20 text-center">
-          <h3 className="text-2xl font-bold text-white mb-3">{t('cta_title')}</h3>
-          <p className="text-slate-400 mb-6">{t('cta_body')}</p>
+        <div className="p-8 rounded-2xl bg-gradient-to-br from-green-100/90 to-emerald-50 border border-green-200/80 dark:from-green-700/20 dark:to-blue-800/10 dark:border-green-500/20 text-center">
+          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{t('cta_title')}</h3>
+          <p className="text-slate-600 dark:text-slate-400 mb-6">{t('cta_body')}</p>
           <Link
             href={`/${locale}#contact`}
             className="inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold text-white bg-green-700 hover:bg-green-600 rounded-xl transition-all duration-200 shadow-lg shadow-green-600/20 hover:shadow-green-600/30"

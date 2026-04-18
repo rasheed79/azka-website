@@ -91,7 +91,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             exit={{ opacity: 0, scale: 0.92, y: 20 }}
             transition={{ type: 'spring', stiffness: 350, damping: 28 }}
             className={cn(
-              'fixed bottom-24 z-50 w-[340px] max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden shadow-2xl shadow-black/40 flex flex-col',
+              'fixed bottom-24 z-50 w-[340px] max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden border border-emerald-200/80 shadow-2xl shadow-slate-900/15 dark:border-transparent flex flex-col dark:shadow-black/40',
               isRtl ? 'left-4 sm:left-6' : 'right-4 sm:right-6'
             )}
             style={{ maxHeight: '480px' }}
@@ -111,7 +111,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto bg-slate-900 p-4 space-y-3" style={{ maxHeight: '300px' }}>
+            <div className="flex-1 overflow-y-auto bg-slate-50 p-4 space-y-3 dark:bg-slate-900" style={{ maxHeight: '300px' }}>
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -122,15 +122,15 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
                 >
                   <div className={cn(
                     'w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5',
-                    msg.role === 'bot' ? 'bg-green-700' : 'bg-slate-700'
+                    msg.role === 'bot' ? 'bg-green-700' : 'bg-slate-200 dark:bg-slate-700'
                   )}>
-                    {msg.role === 'bot' ? <Bot size={14} className="text-white" /> : <User size={14} className="text-slate-300" />}
+                    {msg.role === 'bot' ? <Bot size={14} className="text-white" /> : <User size={14} className="text-slate-600 dark:text-slate-300" />}
                   </div>
                   <div
                     className={cn(
                       'px-4 py-2.5 rounded-2xl text-sm max-w-[80%] chat-message',
                       msg.role === 'bot'
-                        ? 'bg-slate-800 text-slate-200 rounded-tl-sm'
+                        ? 'bg-white border border-emerald-100 text-slate-800 dark:border-transparent dark:bg-slate-800 dark:text-slate-200 rounded-tl-sm'
                         : 'bg-green-700 text-white rounded-tr-sm'
                     )}
                   >
@@ -148,15 +148,15 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="bg-slate-900 border-t border-slate-800 px-3 py-2"
+                  className="bg-slate-100 border-t border-emerald-100 dark:bg-slate-900 dark:border-slate-800 px-3 py-2"
                 >
-                  <p className="text-slate-500 text-xs mb-2 px-1">{t('quick_title')}</p>
+                  <p className="text-slate-600 dark:text-slate-500 text-xs mb-2 px-1">{t('quick_title')}</p>
                   <div className="flex flex-wrap gap-1.5 overflow-y-auto" style={{ maxHeight: '80px' }}>
                     {quickReplies.map((reply) => (
                       <button
                         key={reply}
                         onClick={() => sendMessage(reply)}
-                        className="px-3 py-1.5 rounded-full bg-slate-800 hover:bg-green-700 border border-slate-700 hover:border-green-500 text-slate-300 hover:text-white text-xs transition-all duration-150 whitespace-nowrap"
+                        className="px-3 py-1.5 rounded-full bg-white hover:bg-green-700 border border-slate-200 hover:border-green-500 text-slate-700 hover:text-white dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 dark:hover:text-white text-xs transition-all duration-150 whitespace-nowrap"
                       >
                         {reply}
                       </button>
@@ -167,7 +167,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             </AnimatePresence>
 
             {/* Input */}
-            <div className="bg-slate-900 border-t border-slate-800 p-3">
+            <div className="bg-slate-100 border-t border-emerald-100 dark:bg-slate-900 dark:border-slate-800 p-3">
               <form
                 onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
                 className="flex items-center gap-2"
@@ -177,7 +177,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={t('placeholder')}
-                  className="flex-1 px-3 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-green-500 transition-colors"
+                  className="flex-1 px-3 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-500 text-sm focus:outline-none focus:border-green-600 dark:bg-slate-800 dark:border-slate-700 dark:text-white transition-colors"
                   dir={isRtl ? 'rtl' : 'ltr'}
                 />
                 <button

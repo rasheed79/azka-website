@@ -36,15 +36,15 @@ function StatCard({ icon: Icon, num, label, suffix = '+', started, delay }: Stat
   const count = useCounter(num, 1800, started);
   return (
     <AnimatedSection delay={delay} className="text-center">
-      <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-slate-800/50 border border-slate-700/50 hover:border-green-500/30 transition-all duration-300 w-full">
+      <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-white/90 border border-emerald-200/70 hover:border-green-500/40 dark:bg-slate-800/50 dark:border-slate-700/50 dark:hover:border-green-500/30 transition-all duration-300 w-full shadow-sm dark:shadow-none">
         <div className="w-14 h-14 rounded-2xl bg-green-600/10 border border-green-500/20 flex items-center justify-center mb-5">
           <Icon size={26} className="text-green-400" />
         </div>
-        <div className="text-5xl font-bold text-white mb-2">
+        <div className="text-5xl font-bold text-slate-900 dark:text-white mb-2">
           {count}
           <span className="text-green-400">{suffix}</span>
         </div>
-        <p className="text-slate-400 text-sm font-medium">{label}</p>
+        <p className="text-slate-600 dark:text-slate-400 text-sm font-medium">{label}</p>
       </div>
     </AnimatedSection>
   );
@@ -65,7 +65,7 @@ export default function Stats() {
   return (
     <section id="stats" className="py-16 lg:py-28 relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-emerald-200/30 dark:from-blue-900/5 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -73,8 +73,8 @@ export default function Stats() {
           <span className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium uppercase tracking-wider mb-6">
             {t('badge')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5">{t('title')}</h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">{t('subtitle')}</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-5">{t('title')}</h2>
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-xl mx-auto">{t('subtitle')}</p>
         </AnimatedSection>
 
         {/* Stats Grid */}
