@@ -65,7 +65,11 @@
       },
       "financial": {
         "name": "Financial System",
-        "desc": "Comprehensive financial solutions including accounting, budgets, and financial reports"
+        "desc": "General ledger, AR/AP, reporting, and integration with payroll, procurement, and fixed assets"
+      },
+      "budget": {
+        "name": "Budgeting System",
+        "desc": "Build annual budgets, track commitments vs. actuals, and manage transfers between budget lines"
       },
       "archiving": {
         "name": "Electronic Archiving",
@@ -149,12 +153,15 @@
     "services_title": "Our Services",
     "contact_title": "Contact Us",
     "rights": "All rights reserved — Azka for Information Technology",
-    "photo_credit": "System photos are from Unsplash contributors, free to use under the",
+    "photo_credit": "Homepage hero photography is from Unsplash contributors, free to use under the",
     "photo_credit_license": "Unsplash License"
   },
   "chatbot": {
     "title": "Azka Assistant",
     "subtitle": "We typically reply within minutes",
+    "invite_hint": "Have a question? Tap to chat with Azka.",
+    "fab_title": "Open the assistant — quick answers about services & contact",
+    "fab_toggle_aria": "Open or close the Azka assistant",
     "greeting": "Hello! I'm Azka's smart assistant. How can I help you today?",
     "placeholder": "Type your question here...",
     "send": "Send",
@@ -169,17 +176,35 @@
       "Where are your offices?",
       "Do you serve government entities?",
       "How to request a quote?",
-      "Who are your clients?"
+      "Who are your clients?",
+      "Who are you?",
+      "About Azka?"
+    ],
+    "intent_routes": [
+      { "answer": "Thanks!", "keywords": ["thanks", "thank you", "appreciate", "thx", "شكرا", "شكراً", "merci", "السلام عليكم", "مرحبا", "hello", "hi", "good morning", "good day"] },
+      { "answer": "Who are you?", "keywords": ["who are you", "what are you", "chatbot", "assistant name", "bot on site", "this bot", "what is this", "من انت", "من أنت", "مساعد ذكي"] },
+      { "answer": "About Azka?", "keywords": ["about azka", "about you", "who is azka", "company history", "founded", "since when", "microsoft partner", "ibm", "microsoft", "award", "best partner", "1989", "2002", "2006", "من نحن", "عن أزكى", "عن الشركة", "تاريخ"] },
+      { "answer": "How to request a quote?", "keywords": ["quote", "pricing", "proposal", "cost", "price", "budget", "rfq", "estimate", "demo", "free demo", "عرض سعر", "تسعير", "عرض تجريبي", "ديمو", "how much"] },
+      { "answer": "How to contact you?", "keywords": ["contact", "phone", "email", "call", "reach", "fax", "number", "support", "help line", "connect", "6500223", "6500171", "connect@azka.com", "message", "form", "inquiry", "تواصل", "هاتف", "ايميل", "استفسار", "نموذج", "واتساب", "whatsapp", "p.o", "po box"] },
+      { "answer": "What are your working hours?", "keywords": ["working hours", "office hours", "opening hours", "closed", "friday", "saturday", "sunday", "thursday", "weekend", "schedule", "when open", "when close", "8 am", "5 pm", "17:00", "08:00", "دوام", "اوقات العمل", "أوقات العمل", "مغلق"] },
+      { "answer": "Where are your offices?", "keywords": ["where", "office", "offices", "location", "address", "map", "jeddah", "jeddah office", "ksa", "saudi", "saudi arabia", "1485", "21431", "p.o", "po box", "branches", "headquarters", "hq", "مكتب", "جدة", "فروع", "مقر"] },
+      { "answer": "Do you serve government entities?", "keywords": ["government", "ministry", "ministries", "public sector", "semi-government", "national company", "private sector", "حكومي", "وزارة", "قطاع عام", "وطنية", "أهلية"] },
+      { "answer": "Who are your clients?", "keywords": ["clients", "customers", "references", "projects done", "portfolio", "case studies", "77 projects", "success stories", "عملاء", "مشاريع", "تجارب"] },
+      { "answer": "What systems do you offer?", "keywords": ["systems", "system", "software", "solutions", "products", "modules", "financial system", "finance software", "accounting", "accounting software", "general ledger", "erp", "budget", "budgeting", "budget system", "annual budget", "human resources", "hr system", "payroll", "attendance", "time attendance", "shift", "warehouse", "inventory", "stock", "archiving", "e-archiving", "documents", "digitization", "procurement", "tenders", "contracts", "purchasing", "administrative communications", "correspondence", "self service", "employee portal", "biometric", "fingerprint", "face recognition", "access permits", "access control", "mobile app", "ios", "android", "integration", "api", "web service", "middleware", "أنظمة", "نظام", "نظام مالي", "مالي", "مالية", "محاسبة", "موارد بشرية", "حضور", "انصراف", "مستودع", "مخزون", "أرشفة", "مشتريات", "مناقصات", "مراسلات", "خدمات ذاتية", "بصمة", "تصاريح", "تطبيق", "تكامل", "ربط"] },
+      { "answer": "What are Azka's services?", "keywords": ["services", "what do you do", "what you offer", "offerings", "capabilities", "digital transformation", "it services", "information technology", "computers", "software development", "automated systems", "خدمات", "حلول تقنية", "تحول رقمي", "شو تسوون", "ماذا تقدمون"] }
     ],
     "answers": {
-      "What are Azka's services?": "Azka provides comprehensive IT services including:\n• Planning, design, and building of automated systems\n• HR and attendance management systems\n• Financial solutions and electronic archiving\n• Procurement and administrative communications\n• Mobile apps and systems integration",
+      "What are Azka's services?": "Azka provides comprehensive IT services including:\n• Planning, design, and building of automated systems\n• HR and attendance management systems\n• Financial, budgeting, and electronic archiving solutions\n• Procurement and administrative communications\n• Mobile apps and systems integration",
       "How to contact you?": "You can reach us via:\n📞 Phone: +966 (12) 6500223\n📠 Fax: +966 (12) 6500171\n📧 Email: connect@azka.com\n\nOr fill out the contact form at the bottom of the page.",
       "What are your working hours?": "Our working hours:\n🟢 Sunday — Thursday: 8:00 AM — 5:00 PM\n🟡 Saturday: 12:00 PM — 4:00 PM\n🔴 Friday: Closed",
-      "What systems do you offer?": "We offer 12 integrated systems:\n1. Human Resources\n2. Attendance & Departure\n3. Financial System\n4. Electronic Archiving\n5. Procurement & Contracts\n6. Administrative Communications\n7. Warehouse Management\n8. Self Services\n9. Biometric Recognition\n10. Access Permits\n11. Mobile App Development\n12. Systems Integration",
+      "What systems do you offer?": "We offer 13 integrated systems:\n1. Human Resources\n2. Attendance & Departure\n3. Financial System\n4. Budgeting System\n5. Electronic Archiving\n6. Procurement & Contracts\n7. Administrative Communications\n8. Warehouse Management\n9. Self Services\n10. Biometric Recognition\n11. Access Permits\n12. Mobile App Development\n13. Systems Integration",
       "Where are your offices?": "Our headquarters is in:\n📍 Jeddah, Saudi Arabia\nP.O.Box: 1485, Jeddah 21431\n\nWe have 4 offices across the Kingdom.",
       "Do you serve government entities?": "Absolutely! We have the honor of serving numerous government entities across Saudi Arabia, in addition to national and private companies, with outstanding success in all our projects.",
       "How to request a quote?": "To request a quote:\n1. Fill out the contact form on the main page\n2. Email us: connect@azka.com\n3. Call us directly: +966 (12) 6500223\n\nOur team will get back to you within one business day.",
-      "Who are your clients?": "We serve a wide range of clients across Saudi Arabia:\n🏛️ Multiple government entities\n🏢 Major national companies\n🏭 Private sector organizations\n\nWe have successfully completed over 77 projects."
+      "Who are your clients?": "We serve a wide range of clients across Saudi Arabia:\n🏛️ Multiple government entities\n🏢 Major national companies\n🏭 Private sector organizations\n\nWe have successfully completed over 77 projects.",
+      "Who are you?": "I'm Azka's website assistant. I answer common questions about our services, hours, and contact options.\nFor quotes or detailed consulting, our team is available at:\n📞 +966 (12) 6500223\n📧 connect@azka.com",
+      "Thanks!": "You're welcome! For anything else, use the contact section on this page or email connect@azka.com",
+      "About Azka?": "Azka for Information Technology is a Saudi company focused on planning, designing, building, and managing automated systems and IT solutions.\nWe are proud partners of Microsoft and IBM, with industry recognition including IBM partner awards.\nLearn more in the About and Vision & Mission sections on this page, or reach us directly:\n📞 +966 (12) 6500223\n📧 connect@azka.com"
     },
     "fallback": "Thank you for your question! For a more accurate answer, please contact our team directly:\n📧 connect@azka.com\n📞 +966 (12) 6500223"
   },
@@ -212,8 +237,15 @@
         "name": "Financial System",
         "tagline": "Comprehensive and Integrated Financial Solutions",
         "description": "A complete accounting system covering all financial needs of the organization, from general accounting and receivables management to financial statement preparation.",
-        "features": ["General ledger & bookkeeping", "Accounts receivable & payable", "Budgets & financial planning", "Bank reconciliation", "Financial statements & reports", "Fixed assets management", "Integration with procurement & payroll"],
+        "features": ["General ledger & bookkeeping", "Accounts receivable & payable", "Executive dashboards & operational reports", "Bank reconciliation", "Financial statements & reports", "Fixed assets management", "Integration with procurement, payroll & budgeting"],
         "benefits": ["Financial data accuracy", "Time savings on reporting", "Instant comprehensive financial view", "Compliance with accounting standards"]
+      },
+      "budget": {
+        "name": "Budgeting & Appropriations System",
+        "tagline": "Plan with precision and monitor execution in real time",
+        "description": "A dedicated solution for building entity-, program-, and project-level budgets, tracking commitments and actuals, managing transfers between lines, and staying in sync with the financial system for a single source of truth.",
+        "features": ["Multi-level budget preparation & allocation", "Appropriation transfers & adjustments", "Planned vs. actual monitoring", "What-if scenarios for estimates", "Alerts for limits and overspend risk", "Executive & compliance-ready reports", "Integration with financials & procurement"],
+        "benefits": ["Clear visibility on fund usage", "Decisions grounded in live execution data", "Fewer budget overruns", "Faster annual budget cycles"]
       },
       "archiving": {
         "name": "Electronic Archiving System",

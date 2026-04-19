@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { resolveChatbotAnswer, type ChatbotIntentRoute } from '@/lib/chatbotResolveAnswer';
 
 interface Message {
   id: string;
@@ -24,6 +25,31 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
   const [showQuick, setShowQuick] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const isRtl = locale === 'ar';
+  /** Increments on each attention cycle → icon pulse + expanding ring */
+  const [attentionSeq, setAttentionSeq] = useState(0);
+  /** Short invite bubble to draw visitors to the assistant */
+  const [inviteVisible, setInviteVisible] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setInviteVisible(false);
+      return;
+    }
+    let hideTimer: number | undefined;
+    const runAttention = () => {
+      setAttentionSeq((n) => n + 1);
+      setInviteVisible(true);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => setInviteVisible(false), 7500);
+    };
+    const first = window.setTimeout(runAttention, 10_000);
+    const interval = window.setInterval(runAttention, 30_000);
+    return () => {
+      window.clearTimeout(first);
+      window.clearInterval(interval);
+      if (hideTimer !== undefined) window.clearTimeout(hideTimer);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (open && messages.length === 0) {
@@ -35,7 +61,18 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
   const answersRaw = t.raw('answers') as Record<string, string>;
+  const routesRaw = t.raw('intent_routes');
+  const intentRoutes = (Array.isArray(routesRaw) ? routesRaw : []) as ChatbotIntentRoute[];
 
   const sendMessage = (text: string) => {
     if (!text.trim()) return;
@@ -46,7 +83,8 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
     setInput('');
 
     setTimeout(() => {
-      const answer = answersRaw[text] ?? t('fallback');
+      const resolved = resolveChatbotAnswer(text, answersRaw, intentRoutes);
+      const answer = resolved ?? t('fallback');
       setMessages((prev) => [
         ...prev,
         { id: (Date.now() + 1).toString(), role: 'bot', text: answer },
@@ -58,29 +96,91 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
 
   return (
     <>
-      {/* Toggle Button */}
-      <motion.button
-        onClick={() => setOpen(!open)}
-        className={cn(
-          'fixed bottom-6 z-50 w-14 h-14 rounded-full bg-green-700 hover:bg-green-600 text-white shadow-2xl shadow-green-600/30 flex items-center justify-center transition-colors duration-200',
-          isRtl ? 'left-6' : 'right-6'
-        )}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        aria-label="Toggle chat"
-      >
-        <AnimatePresence mode="wait">
-          {open ? (
-            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-              <X size={22} />
-            </motion.div>
-          ) : (
-            <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-              <MessageCircle size={22} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
+      {/* FAB + invite — bubble is absolute so RTL/LTR never shifts the button */}
+      <div className={cn('fixed bottom-6 z-50', isRtl ? 'left-6' : 'right-6')}>
+        <div className="relative h-14 w-14">
+          <AnimatePresence>
+            {inviteVisible && !open && (
+              <motion.button
+                type="button"
+                initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                transition={{ type: 'spring', stiffness: 420, damping: 28 }}
+                onClick={() => setOpen(true)}
+                className={cn(
+                  'absolute bottom-full z-20 mb-2 w-max max-w-[min(220px,calc(100vw-5rem))] rounded-2xl border border-emerald-200/90 bg-white/95 px-3.5 py-2.5 text-left text-xs font-medium text-slate-800 shadow-lg shadow-slate-900/10 backdrop-blur-sm dark:border-slate-600 dark:bg-slate-800/95 dark:text-slate-100 dark:shadow-black/40',
+                  isRtl ? 'left-0 text-right' : 'right-0'
+                )}
+              >
+                <span className="block leading-snug">{t('invite_hint')}</span>
+              </motion.button>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {!open && attentionSeq > 0 && (
+              <motion.span
+                key={attentionSeq}
+                className="pointer-events-none absolute inset-0 z-0 rounded-full border-2 border-green-400/90 dark:border-green-300/80"
+                initial={{ scale: 1, opacity: 0.75 }}
+                animate={{ scale: 2.15, opacity: 0 }}
+                transition={{ duration: 1.65, ease: 'easeOut' }}
+              />
+            )}
+          </AnimatePresence>
+
+          <motion.button
+            type="button"
+            onClick={() => setOpen(!open)}
+            title={open ? undefined : t('fab_title')}
+            aria-label={t('fab_toggle_aria')}
+            aria-expanded={open}
+            className={cn(
+              'relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-green-700 text-white shadow-2xl shadow-green-600/30 transition-colors duration-200 hover:bg-green-600',
+              inviteVisible && !open && 'ring-2 ring-green-400/80 ring-offset-2 ring-offset-white dark:ring-offset-slate-900'
+            )}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <AnimatePresence mode="wait">
+              {open ? (
+                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <X size={22} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-center justify-center"
+                >
+                  <motion.span
+                    key={attentionSeq === 0 ? 'idle' : attentionSeq}
+                    className="flex items-center justify-center"
+                    initial={{ scale: 1 }}
+                    animate={
+                      attentionSeq === 0
+                        ? { scale: 1 }
+                        : {
+                            scale: [1, 1.18, 1, 1.1, 1],
+                            transition: {
+                              duration: 1.35,
+                              ease: 'easeInOut',
+                              times: [0, 0.22, 0.45, 0.72, 1],
+                            },
+                          }
+                    }
+                  >
+                    <MessageCircle size={22} />
+                  </motion.span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </div>
+      </div>
 
       {/* Chat Window */}
       <AnimatePresence>
@@ -91,10 +191,10 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             exit={{ opacity: 0, scale: 0.92, y: 20 }}
             transition={{ type: 'spring', stiffness: 350, damping: 28 }}
             className={cn(
-              'fixed bottom-24 z-50 w-[340px] max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden border border-emerald-200/80 shadow-2xl shadow-slate-900/15 dark:border-transparent flex flex-col dark:shadow-black/40',
+              'fixed bottom-24 z-50 w-[340px] max-w-[calc(100vw-2rem)] min-w-0 rounded-2xl overflow-hidden border border-emerald-200/80 shadow-2xl shadow-slate-900/15 dark:border-transparent flex flex-col dark:shadow-black/40',
               isRtl ? 'left-4 sm:left-6' : 'right-4 sm:right-6'
             )}
-            style={{ maxHeight: '480px' }}
+            style={{ maxHeight: '600px' }}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-green-800 to-green-700 p-4 flex items-center gap-3">
@@ -111,7 +211,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto bg-slate-50 p-4 space-y-3 dark:bg-slate-900" style={{ maxHeight: '300px' }}>
+            <div className="flex-1 overflow-y-auto bg-slate-50 p-4 space-y-3 dark:bg-slate-900" style={{ maxHeight: '375px' }}>
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -151,7 +251,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
                   className="bg-slate-100 border-t border-emerald-100 dark:bg-slate-900 dark:border-slate-800 px-3 py-2"
                 >
                   <p className="text-slate-600 dark:text-slate-500 text-xs mb-2 px-1">{t('quick_title')}</p>
-                  <div className="flex flex-wrap gap-1.5 overflow-y-auto" style={{ maxHeight: '80px' }}>
+                  <div className="flex flex-wrap gap-1.5 overflow-y-auto" style={{ maxHeight: '100px' }}>
                     {quickReplies.map((reply) => (
                       <button
                         key={reply}
@@ -167,17 +267,17 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
             </AnimatePresence>
 
             {/* Input */}
-            <div className="bg-slate-100 border-t border-emerald-100 dark:bg-slate-900 dark:border-slate-800 p-3">
+            <div className="min-w-0 bg-slate-100 border-t border-emerald-100 dark:bg-slate-900 dark:border-slate-800 p-3">
               <form
                 onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
-                className="flex items-center gap-2"
+                className="flex min-w-0 w-full items-center gap-2"
               >
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={t('placeholder')}
-                  className="flex-1 px-3 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-500 text-sm focus:outline-none focus:border-green-600 dark:bg-slate-800 dark:border-slate-700 dark:text-white transition-colors"
+                  className="min-w-0 flex-1 px-3 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-500 text-sm focus:outline-none focus:border-green-600 dark:bg-slate-800 dark:border-slate-700 dark:text-white transition-colors"
                   dir={isRtl ? 'rtl' : 'ltr'}
                 />
                 <button

@@ -1,7 +1,15 @@
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { systemSlugs, systemIcons, systemColors, systemSpecImages, type SystemSlug } from '@/lib/systems';
+import SystemGalleryIllustration from '@/components/systems/SystemGalleryIllustration';
+import {
+  systemSlugs,
+  systemIcons,
+  systemColors,
+  systemGalleryImages,
+  systemUsesPhotoGallery,
+  type SystemSlug,
+} from '@/lib/systems';
 import { ArrowRight, ArrowLeft, CheckCircle2, Zap } from 'lucide-react';
 import Link from 'next/link';
 import * as LucideIcons from 'lucide-react';
@@ -35,6 +43,16 @@ export default async function SystemPage({ params }: PageProps) {
 
   const features = tDetails.raw('features') as string[];
   const benefits = tDetails.raw('benefits') as string[];
+
+  const usePhotoGallery = systemUsesPhotoGallery(typedSlug);
+  const gallery = systemGalleryImages[typedSlug];
+  const galleryCount = gallery.length;
+  const galleryGridClass =
+    usePhotoGallery && galleryCount >= 3
+      ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'
+      : 'grid grid-cols-1 sm:grid-cols-2 gap-4';
+  const gallerySizes =
+    galleryCount >= 3 ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw' : '(max-width: 640px) 100vw, 50vw';
 
   const BackIcon = isRtl ? ArrowLeft : ArrowRight;
 
@@ -77,12 +95,11 @@ export default async function SystemPage({ params }: PageProps) {
           >
             {t('spec_gallery')}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {([0, 1] as const).map((idx) => {
-              const src = systemSpecImages[typedSlug][idx];
-              return (
+          <div className={galleryGridClass}>
+            {usePhotoGallery ? (
+              gallery.map((src, idx) => (
                 <figure
-                  key={src}
+                  key={`${typedSlug}-gallery-${idx}-${src}`}
                   className="relative aspect-video w-full overflow-hidden rounded-2xl border border-emerald-200/70 bg-slate-100 dark:border-slate-700/50 dark:bg-slate-900/60 shadow-sm dark:shadow-none"
                 >
                   <Image
@@ -90,11 +107,34 @@ export default async function SystemPage({ params }: PageProps) {
                     alt={`${tDetails('name')} — ${t('spec_alt', { index: idx + 1 })}`}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 640px) 100vw, 50vw"
+                    sizes={gallerySizes}
                   />
                 </figure>
-              );
-            })}
+              ))
+            ) : (
+              <>
+                <SystemGalleryIllustration
+                  variant="a"
+                  name={tDetails('name')}
+                  tagline={tDetails('tagline')}
+                  features={features}
+                  benefits={benefits}
+                  accentGradient={gradient}
+                  dir={isRtl ? 'rtl' : 'ltr'}
+                  ariaLabel={`${tDetails('name')} — ${t('spec_alt', { index: 1 })}`}
+                />
+                <SystemGalleryIllustration
+                  variant="b"
+                  name={tDetails('name')}
+                  tagline={tDetails('tagline')}
+                  features={features}
+                  benefits={benefits}
+                  accentGradient={gradient}
+                  dir={isRtl ? 'rtl' : 'ltr'}
+                  ariaLabel={`${tDetails('name')} — ${t('spec_alt', { index: 2 })}`}
+                />
+              </>
+            )}
           </div>
         </section>
 

@@ -5,9 +5,8 @@ import { useTranslations } from 'next-intl';
 import { ArrowDown, Zap } from 'lucide-react';
 import Image from 'next/image';
 
-/** Skyline / modern workspace — Unsplash License: https://unsplash.com/license */
-const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=82';
+/** Hero background — self-hosted; see public/images/stock/LICENSE.txt */
+const HERO_IMAGE = '/images/stock/site-hero-bg.jpg';
 
 export default function Hero() {
   const t = useTranslations('hero');
