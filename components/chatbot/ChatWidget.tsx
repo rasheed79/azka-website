@@ -29,6 +29,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
   const [attentionSeq, setAttentionSeq] = useState(0);
   /** Short invite bubble to draw visitors to the assistant */
   const [inviteVisible, setInviteVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (open) {
@@ -74,22 +75,41 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
   const routesRaw = t.raw('intent_routes');
   const intentRoutes = (Array.isArray(routesRaw) ? routesRaw : []) as ChatbotIntentRoute[];
 
-  const sendMessage = (text: string) => {
-    if (!text.trim()) return;
+  const sendMessage = async (text: string) => {
+    if (!text.trim() || isLoading) return;
     setShowQuick(false);
 
     const userMsg: Message = { id: Date.now().toString(), role: 'user', text };
     setMessages((prev) => [...prev, userMsg]);
     setInput('');
+    setIsLoading(true);
 
-    setTimeout(() => {
-      const resolved = resolveChatbotAnswer(text, answersRaw, intentRoutes);
-      const answer = resolved ?? t('fallback');
+    const history = [...messages.filter((m) => m.id !== 'greeting'), userMsg].map((m) => ({
+      role: m.role === 'bot' ? ('assistant' as const) : ('user' as const),
+      content: m.text,
+    }));
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json() as { reply?: string };
       setMessages((prev) => [
         ...prev,
-        { id: (Date.now() + 1).toString(), role: 'bot', text: answer },
+        { id: (Date.now() + 1).toString(), role: 'bot', text: data.reply || t('fallback') },
       ]);
-    }, 600);
+    } catch {
+      const resolved = resolveChatbotAnswer(text, answersRaw, intentRoutes);
+      setMessages((prev) => [
+        ...prev,
+        { id: (Date.now() + 1).toString(), role: 'bot', text: resolved ?? t('fallback') },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const quickReplies = t.raw('quick_replies') as string[];
@@ -238,6 +258,20 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
                   </div>
                 </div>
               ))}
+              {isLoading && (
+                <div className="flex items-start gap-2.5 flex-row">
+                  <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-green-700">
+                    <Bot size={14} className="text-white" />
+                  </div>
+                  <div className="px-4 py-2.5 rounded-2xl text-sm bg-white border border-emerald-100 text-slate-800 dark:border-transparent dark:bg-slate-800 dark:text-slate-200 rounded-tl-sm">
+                    <span className="flex gap-1 items-center">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:0ms]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:150ms]" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce [animation-delay:300ms]" />
+                    </span>
+                  </div>
+                </div>
+              )}
               <div ref={messagesEndRef} />
             </div>
 
@@ -282,7 +316,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
                 />
                 <button
                   type="submit"
-                  disabled={!input.trim()}
+                  disabled={!input.trim() || isLoading}
                   className="w-9 h-9 rounded-xl bg-green-700 hover:bg-green-600 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center text-white transition-colors flex-shrink-0"
                 >
                   <Send size={14} />
