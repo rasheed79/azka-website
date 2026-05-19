@@ -2,15 +2,13 @@
 
 import { useTranslations } from 'next-intl';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection';
-import { Award, Building2, Calendar, CheckCircle2 } from 'lucide-react';
+import { Building2, Calendar } from 'lucide-react';
 
 export default function About() {
   const t = useTranslations('about');
 
   const badges = [
     { icon: Building2, label: t('partner_ms'), color: 'text-green-400', bg: 'bg-green-600/10 border-green-500/20' },
-    { icon: Building2, label: t('partner_ibm'), color: 'text-slate-600 dark:text-slate-300', bg: 'bg-slate-500/10 border-slate-500/20' },
-    { icon: Award, label: t('award'), color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
     { icon: Calendar, label: t('founded'), color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
   ];
 
