@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Azka for Information Technology",
+  "alternateName": "أزكى لتقنية المعلومات",
+  "url": "https://www.azka.com",
+  "email": "connect@azka.com",
+  "telephone": "+966126500223",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "P.O.Box 1485",
+    "addressLocality": "Jeddah",
+    "postalCode": "21431",
+    "addressCountry": "SA"
+  },
+  "foundingDate": "1989",
+  "description": "Azka for Information Technology provides planning, design, building, and management of automated systems in Saudi Arabia."
+}

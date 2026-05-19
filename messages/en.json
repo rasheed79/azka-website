@@ -1,0 +1,315 @@
+{
+  "nav": {
+    "about": "About Us",
+    "services": "Services",
+    "stats": "Our Numbers",
+    "contact": "Contact",
+    "switchLang": "العربية",
+    "theme_to_light": "Switch to light mode",
+    "theme_to_dark": "Switch to dark mode"
+  },
+  "hero": {
+    "badge": "Microsoft & IBM Partner",
+    "title_1": "Plan, Design,",
+    "title_2": "Build & Manage",
+    "title_3": "Automated Systems",
+    "subtitle": "Azka for Information Technology — Delivering cutting-edge IT solutions since 1989",
+    "cta_primary": "Explore Our Services",
+    "cta_secondary": "Get In Touch",
+    "scroll": "Scroll Down"
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "We are Azka",
+    "body1": "Azka for Systems and Computers was established in 1989. It initially focused on software development, then expanded to include computer hardware and accessories.",
+    "body2": "Since its founding, Azka has continuously provided clients with the latest technologies to keep pace with the rapid evolution in information technology.",
+    "body3": "Azka is an authorized partner of both Microsoft and IBM, and received the IBM Best Business Partner Award in 2006. The company was transformed into Azka for Information Technology in 2002.",
+    "partner_ms": "Certified Microsoft Partner",
+    "partner_ibm": "Certified IBM Partner",
+    "award": "IBM Best Partner Award 2006",
+    "founded": "Founded 1989"
+  },
+  "vmv": {
+    "badge": "Our Philosophy",
+    "title": "Vision, Mission & Values",
+    "vision_tab": "Vision",
+    "mission_tab": "Mission",
+    "values_tab": "Values",
+    "vision_title": "Our Vision",
+    "vision_body": "To provide the Saudi market with the IT solutions it needs to achieve comprehensive digital transformation.",
+    "mission_title": "Our Mission",
+    "mission_body": "To plan, design, build, and manage automated systems while providing supporting services through the optimal investment of available resources.",
+    "values_title": "Our Core Values",
+    "values": [
+      { "title": "Quality & Excellence", "desc": "We commit to the highest quality standards in everything we deliver" },
+      { "title": "Integrity & Transparency", "desc": "We build relationships founded on trust and honesty" },
+      { "title": "Innovation & Development", "desc": "We embrace the latest technologies and innovate advanced solutions" },
+      { "title": "Teamwork Spirit", "desc": "We believe in the power of collaboration to achieve the best results" },
+      { "title": "Customer First", "desc": "We place our clients' needs at the forefront of our priorities" },
+      { "title": "Accountability", "desc": "We honor our commitments and take full responsibility" }
+    ]
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Systems We Offer",
+    "subtitle": "Integrated IT solutions covering all your organization's needs",
+    "learn_more": "Learn More",
+    "items": {
+      "hr": {
+        "name": "Human Resources",
+        "desc": "Comprehensive system for managing all employee affairs from recruitment to end of service"
+      },
+      "attendance": {
+        "name": "Attendance & Departure",
+        "desc": "Accurate tracking of employee attendance times with automatic payroll integration"
+      },
+      "financial": {
+        "name": "Financial System",
+        "desc": "General ledger, AR/AP, reporting, and integration with payroll, procurement, and fixed assets"
+      },
+      "budget": {
+        "name": "Budgeting System",
+        "desc": "Build annual budgets, track commitments vs. actuals, and manage transfers between budget lines"
+      },
+      "archiving": {
+        "name": "Electronic Archiving",
+        "desc": "Digitize and archive documents with instant search and retrieval capabilities"
+      },
+      "procurement": {
+        "name": "Procurement & Contracts",
+        "desc": "Manage procurement cycles, tenders, and contracts fully electronically"
+      },
+      "communications": {
+        "name": "Administrative Communications",
+        "desc": "Integrated system for internal and external administrative correspondence"
+      },
+      "warehouse": {
+        "name": "Warehouse Management",
+        "desc": "Track inventory and manage goods and materials movement with high precision"
+      },
+      "self-service": {
+        "name": "Self Services",
+        "desc": "An electronic portal enabling employees to manage their own transactions"
+      },
+      "biometric": {
+        "name": "Biometric Recognition",
+        "desc": "Biometric recognition systems for identity verification and access control"
+      },
+      "access": {
+        "name": "Access Permits",
+        "desc": "Manage access permissions to buildings and restricted areas"
+      },
+      "mobile": {
+        "name": "Mobile App Development",
+        "desc": "Custom mobile application development for iOS and Android platforms"
+      },
+      "integration": {
+        "name": "Systems Integration",
+        "desc": "Connect and integrate different systems for seamless data flow"
+      }
+    }
+  },
+  "stats": {
+    "badge": "Our Numbers",
+    "title": "Azka in Numbers",
+    "subtitle": "Figures reflecting decades of excellence and expertise",
+    "projects_num": "77",
+    "projects_label": "Completed Projects",
+    "offices_num": "4",
+    "offices_label": "Offices",
+    "professionals_num": "67",
+    "professionals_label": "Specialists",
+    "years_num": "35",
+    "years_label": "Years of Experience"
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "We Are At Your Service",
+    "subtitle": "For any inquiries or requests for additional information, please don't hesitate to contact us",
+    "form_name": "Full Name",
+    "form_email": "Email Address",
+    "form_subject": "Subject",
+    "form_message": "Your Message",
+    "form_submit": "Send Message",
+    "form_sending": "Sending...",
+    "form_success": "Your message was sent successfully! We'll get back to you soon.",
+    "form_error": "An error occurred. Please try again or contact us directly.",
+    "info_address": "P.O.Box 1485, Jeddah 21431, Saudi Arabia",
+    "info_phone": "+966 (12) 6500223",
+    "info_fax": "+966 (12) 6500171",
+    "info_email": "connect@azka.com",
+    "hours_title": "Working Hours",
+    "hours_weekdays": "Sunday — Thursday",
+    "hours_weekdays_time": "08:00 — 17:00",
+    "hours_saturday": "Saturday",
+    "hours_saturday_time": "12:00 — 16:00",
+    "hours_friday": "Friday",
+    "hours_friday_time": "Closed"
+  },
+  "footer": {
+    "tagline": "In Touch With Tomorrow",
+    "description": "Azka for Information Technology — Your trusted partner in digital transformation since 1989",
+    "links_title": "Quick Links",
+    "services_title": "Our Services",
+    "contact_title": "Contact Us",
+    "rights": "All rights reserved — Azka for Information Technology",
+    "photo_credit": "Homepage hero photography is from Unsplash contributors, free to use under the",
+    "photo_credit_license": "Unsplash License"
+  },
+  "chatbot": {
+    "title": "Azka Assistant",
+    "subtitle": "We typically reply within minutes",
+    "invite_hint": "Have a question? Tap to chat with Azka.",
+    "fab_title": "Open the assistant — quick answers about services & contact",
+    "fab_toggle_aria": "Open or close the Azka assistant",
+    "greeting": "Hello! I'm Azka's smart assistant. How can I help you today?",
+    "placeholder": "Type your question here...",
+    "send": "Send",
+    "you": "You",
+    "bot": "Azka",
+    "quick_title": "Common Questions:",
+    "quick_replies": [
+      "What are Azka's services?",
+      "How to contact you?",
+      "What are your working hours?",
+      "What systems do you offer?",
+      "Where are your offices?",
+      "Do you serve government entities?",
+      "How to request a quote?",
+      "Who are your clients?",
+      "Who are you?",
+      "About Azka?"
+    ],
+    "intent_routes": [
+      { "answer": "Thanks!", "keywords": ["thanks", "thank you", "appreciate", "thx", "شكرا", "شكراً", "merci", "السلام عليكم", "مرحبا", "hello", "hi", "good morning", "good day"] },
+      { "answer": "Who are you?", "keywords": ["who are you", "what are you", "chatbot", "assistant name", "bot on site", "this bot", "what is this", "من انت", "من أنت", "مساعد ذكي"] },
+      { "answer": "About Azka?", "keywords": ["about azka", "about you", "who is azka", "company history", "founded", "since when", "microsoft partner", "ibm", "microsoft", "award", "best partner", "1989", "2002", "2006", "من نحن", "عن أزكى", "عن الشركة", "تاريخ"] },
+      { "answer": "How to request a quote?", "keywords": ["quote", "pricing", "proposal", "cost", "price", "budget", "rfq", "estimate", "demo", "free demo", "عرض سعر", "تسعير", "عرض تجريبي", "ديمو", "how much"] },
+      { "answer": "How to contact you?", "keywords": ["contact", "phone", "email", "call", "reach", "fax", "number", "support", "help line", "connect", "6500223", "6500171", "connect@azka.com", "message", "form", "inquiry", "تواصل", "هاتف", "ايميل", "استفسار", "نموذج", "واتساب", "whatsapp", "p.o", "po box"] },
+      { "answer": "What are your working hours?", "keywords": ["working hours", "office hours", "opening hours", "closed", "friday", "saturday", "sunday", "thursday", "weekend", "schedule", "when open", "when close", "8 am", "5 pm", "17:00", "08:00", "دوام", "اوقات العمل", "أوقات العمل", "مغلق"] },
+      { "answer": "Where are your offices?", "keywords": ["where", "office", "offices", "location", "address", "map", "jeddah", "jeddah office", "ksa", "saudi", "saudi arabia", "1485", "21431", "p.o", "po box", "branches", "headquarters", "hq", "مكتب", "جدة", "فروع", "مقر"] },
+      { "answer": "Do you serve government entities?", "keywords": ["government", "ministry", "ministries", "public sector", "semi-government", "national company", "private sector", "حكومي", "وزارة", "قطاع عام", "وطنية", "أهلية"] },
+      { "answer": "Who are your clients?", "keywords": ["clients", "customers", "references", "projects done", "portfolio", "case studies", "77 projects", "success stories", "عملاء", "مشاريع", "تجارب"] },
+      { "answer": "What systems do you offer?", "keywords": ["systems", "system", "software", "solutions", "products", "modules", "financial system", "finance software", "accounting", "accounting software", "general ledger", "erp", "budget", "budgeting", "budget system", "annual budget", "human resources", "hr system", "payroll", "attendance", "time attendance", "shift", "warehouse", "inventory", "stock", "archiving", "e-archiving", "documents", "digitization", "procurement", "tenders", "contracts", "purchasing", "administrative communications", "correspondence", "self service", "employee portal", "biometric", "fingerprint", "face recognition", "access permits", "access control", "mobile app", "ios", "android", "integration", "api", "web service", "middleware", "أنظمة", "نظام", "نظام مالي", "مالي", "مالية", "محاسبة", "موارد بشرية", "حضور", "انصراف", "مستودع", "مخزون", "أرشفة", "مشتريات", "مناقصات", "مراسلات", "خدمات ذاتية", "بصمة", "تصاريح", "تطبيق", "تكامل", "ربط"] },
+      { "answer": "What are Azka's services?", "keywords": ["services", "what do you do", "what you offer", "offerings", "capabilities", "digital transformation", "it services", "information technology", "computers", "software development", "automated systems", "خدمات", "حلول تقنية", "تحول رقمي", "شو تسوون", "ماذا تقدمون"] }
+    ],
+    "answers": {
+      "What are Azka's services?": "Azka provides comprehensive IT services including:\n• Planning, design, and building of automated systems\n• HR and attendance management systems\n• Financial, budgeting, and electronic archiving solutions\n• Procurement and administrative communications\n• Mobile apps and systems integration",
+      "How to contact you?": "You can reach us via:\n📞 Phone: +966 (12) 6500223\n📠 Fax: +966 (12) 6500171\n📧 Email: connect@azka.com\n\nOr fill out the contact form at the bottom of the page.",
+      "What are your working hours?": "Our working hours:\n🟢 Sunday — Thursday: 8:00 AM — 5:00 PM\n🟡 Saturday: 12:00 PM — 4:00 PM\n🔴 Friday: Closed",
+      "What systems do you offer?": "We offer 13 integrated systems:\n1. Human Resources\n2. Attendance & Departure\n3. Financial System\n4. Budgeting System\n5. Electronic Archiving\n6. Procurement & Contracts\n7. Administrative Communications\n8. Warehouse Management\n9. Self Services\n10. Biometric Recognition\n11. Access Permits\n12. Mobile App Development\n13. Systems Integration",
+      "Where are your offices?": "Our headquarters is in:\n📍 Jeddah, Saudi Arabia\nP.O.Box: 1485, Jeddah 21431\n\nWe have 4 offices across the Kingdom.",
+      "Do you serve government entities?": "Absolutely! We have the honor of serving numerous government entities across Saudi Arabia, in addition to national and private companies, with outstanding success in all our projects.",
+      "How to request a quote?": "To request a quote:\n1. Fill out the contact form on the main page\n2. Email us: connect@azka.com\n3. Call us directly: +966 (12) 6500223\n\nOur team will get back to you within one business day.",
+      "Who are your clients?": "We serve a wide range of clients across Saudi Arabia:\n🏛️ Multiple government entities\n🏢 Major national companies\n🏭 Private sector organizations\n\nWe have successfully completed over 77 projects.",
+      "Who are you?": "I'm Azka's website assistant. I answer common questions about our services, hours, and contact options.\nFor quotes or detailed consulting, our team is available at:\n📞 +966 (12) 6500223\n📧 connect@azka.com",
+      "Thanks!": "You're welcome! For anything else, use the contact section on this page or email connect@azka.com",
+      "About Azka?": "Azka for Information Technology is a Saudi company focused on planning, designing, building, and managing automated systems and IT solutions.\nWe are proud partners of Microsoft and IBM, with industry recognition including IBM partner awards.\nLearn more in the About and Vision & Mission sections on this page, or reach us directly:\n📞 +966 (12) 6500223\n📧 connect@azka.com"
+    },
+    "fallback": "Thank you for your question! For a more accurate answer, please contact our team directly:\n📧 connect@azka.com\n📞 +966 (12) 6500223"
+  },
+  "systems": {
+    "back": "Back to Home",
+    "all_systems": "All Systems",
+    "features": "Key Features",
+    "benefits": "Benefits",
+    "spec_gallery": "Product views",
+    "spec_alt": "Illustration {index}",
+    "cta_title": "Want to Learn More?",
+    "cta_body": "Contact our team for a free demo",
+    "cta_btn": "Contact Us",
+    "details": {
+      "hr": {
+        "name": "Human Resources System",
+        "tagline": "Comprehensive Human Capital Management",
+        "description": "An integrated system for managing all aspects of human resources, from talent acquisition and employee lifecycle management to end of service, with full support for Saudi labor law requirements.",
+        "features": ["Employee records management", "Recruitment & onboarding", "Training & development", "Annual performance reviews", "Leave & absence management", "Payroll & benefits", "Advanced analytical reports"],
+        "benefits": ["Reduce manual work by 80%", "High data accuracy", "Full labor law compliance", "Data-driven decisions"]
+      },
+      "attendance": {
+        "name": "Attendance & Departure System",
+        "tagline": "Accurate and Automated Work Time Tracking",
+        "description": "A smart system for monitoring and recording employee attendance and departure with high precision, with automatic payroll integration and detailed reporting.",
+        "features": ["Automated check-in/check-out", "Fingerprint & face recognition", "Shift & schedule management", "Automatic overtime calculation", "Absence & lateness reports", "Real-time supervisor alerts"],
+        "benefits": ["Save time on payroll processing", "Complete attendance accuracy", "Full transparency with employees", "Reduce administrative disputes"]
+      },
+      "financial": {
+        "name": "Financial System",
+        "tagline": "Comprehensive and Integrated Financial Solutions",
+        "description": "A complete accounting system covering all financial needs of the organization, from general accounting and receivables management to financial statement preparation.",
+        "features": ["General ledger & bookkeeping", "Accounts receivable & payable", "Executive dashboards & operational reports", "Bank reconciliation", "Financial statements & reports", "Fixed assets management", "Integration with procurement, payroll & budgeting"],
+        "benefits": ["Financial data accuracy", "Time savings on reporting", "Instant comprehensive financial view", "Compliance with accounting standards"]
+      },
+      "budget": {
+        "name": "Budgeting & Appropriations System",
+        "tagline": "Plan with precision and monitor execution in real time",
+        "description": "A dedicated solution for building entity-, program-, and project-level budgets, tracking commitments and actuals, managing transfers between lines, and staying in sync with the financial system for a single source of truth.",
+        "features": ["Multi-level budget preparation & allocation", "Appropriation transfers & adjustments", "Planned vs. actual monitoring", "What-if scenarios for estimates", "Alerts for limits and overspend risk", "Executive & compliance-ready reports", "Integration with financials & procurement"],
+        "benefits": ["Clear visibility on fund usage", "Decisions grounded in live execution data", "Fewer budget overruns", "Faster annual budget cycles"]
+      },
+      "archiving": {
+        "name": "Electronic Archiving System",
+        "tagline": "Smart Digitization for All Your Documents",
+        "description": "An advanced electronic archiving system for digitizing, storing, and managing all organizational documents with instant search and retrieval of any document in seconds.",
+        "features": ["Scanning & automatic indexing", "Full-text document search", "Document lifecycle management", "Tiered access permissions", "Automatic backup", "Support for all file formats"],
+        "benefits": ["Save physical storage space", "Instant document retrieval", "Protect documents from loss", "Accelerate administrative processes"]
+      },
+      "procurement": {
+        "name": "Procurement, Contracts & Tenders",
+        "tagline": "Complete Electronic Management of Purchasing",
+        "description": "A comprehensive system for managing the entire procurement cycle from purchase requests through tenders and negotiations to contracts, delivery, and payment.",
+        "features": ["Electronic purchase requests", "Vendor management & qualification", "Tenders & inquiries", "Contract management & renewal", "Delivery tracking", "Integration with financial & warehouse systems"],
+        "benefits": ["Full procurement transparency", "Cost savings", "Faster procurement cycles", "Compliance with procurement regulations"]
+      },
+      "communications": {
+        "name": "Administrative Communications System",
+        "tagline": "Smart and Efficient Administrative Correspondence",
+        "description": "An integrated electronic system for managing all internal and external administrative correspondence and transactions with complete tracking of each transaction's path.",
+        "features": ["Electronic letter creation & dispatch", "Transaction path tracking", "Delegation & signature management", "Automatic correspondence archiving", "Overdue transaction alerts", "Administrative performance reports"],
+        "benefits": ["Faster transaction completion", "Complete transparency & tracking", "Reduced paper usage", "Higher employee efficiency"]
+      },
+      "warehouse": {
+        "name": "Warehouse & Inventory Management",
+        "tagline": "Complete Control Over Your Inventory",
+        "description": "An integrated system for warehouse management and tracking the movement of materials and goods with precise inventory control and reorder alerts.",
+        "features": ["Electronic receiving & issuing", "Real-time inventory tracking", "Location & unit management", "Minimum stock level alerts", "Electronic periodic stocktaking", "Inventory movement reports"],
+        "benefits": ["High inventory data accuracy", "Reduce material waste", "Faster issuing processes", "Informed purchasing decisions"]
+      },
+      "self-service": {
+        "name": "Self-Service System",
+        "tagline": "Empowering Employees to Handle Their Own Transactions",
+        "description": "An electronic portal that enables employees to request services and complete their transactions independently without the need for personal visits.",
+        "features": ["Leave & permission requests", "Payslip access", "Personal data updates", "Certificate & report requests", "Request status tracking", "HR department communication"],
+        "benefits": ["Reduce HR department workload", "Faster service delivery", "Higher employee satisfaction", "Save time and effort"]
+      },
+      "biometric": {
+        "name": "Biometric Recognition System",
+        "tagline": "Secure and Fast Identity Verification",
+        "description": "Advanced biometric recognition systems for login and identity verification using fingerprint, facial recognition, and iris scanning.",
+        "features": ["Fingerprint recognition", "Facial recognition", "Iris scanning", "Secure enrollment & revocation", "Access system integration", "Complete reliable records"],
+        "benefits": ["High security in identity verification", "Fast access processes", "Eliminate attendance fraud", "Ease of use"]
+      },
+      "access": {
+        "name": "Access Permits System",
+        "tagline": "Smart Control Over Access and Security",
+        "description": "An integrated system for managing access permissions to buildings and restricted areas with complete logging of all entry and exit movements.",
+        "features": ["Smart access cards", "Precise permission settings", "Access time scheduling", "Complete entry movement log", "Unauthorized access alerts", "CCTV integration"],
+        "benefits": ["Superior facility security", "Complete access control", "Reliable record of all movements", "Protection from unauthorized access"]
+      },
+      "mobile": {
+        "name": "Mobile App Development",
+        "tagline": "Professional Mobile Apps for Your Systems",
+        "description": "Custom mobile application development for Azka systems and your existing systems on iOS and Android with modern design and high performance.",
+        "features": ["iOS & Android apps", "Professional UI/UX design", "Full integration with existing systems", "Continuous updates & maintenance", "Push notification support", "Offline functionality"],
+        "benefits": ["Access systems from anywhere", "Boost employee productivity", "Modern user experience", "Seamless system integration"]
+      },
+      "integration": {
+        "name": "Systems Integration",
+        "tagline": "Connect All Your Systems Into One Ecosystem",
+        "description": "Advanced integration solutions for connecting Azka systems with each other and with external systems to ensure smooth and secure data flow.",
+        "features": ["Multi-system integration", "APIs & Web Services", "Data transformation & unification", "Real-time data synchronization", "Integration performance monitoring", "Complete integration documentation"],
+        "benefits": ["Unified, non-duplicate data", "Reduce manual data entry", "Comprehensive unified view", "Higher operational efficiency"]
+      }
+    }
+  }
+}

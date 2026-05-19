@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تقرير موقع أزكى الإلكتروني — تحديث للإدارة</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      max-width: 780px;
+      margin: 60px auto;
+      padding: 40px;
+      font-size: 15px;
+      line-height: 2;
+    }
+    .header {
+      border-bottom: 3px solid #16a34a;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: bold;
+      color: #16a34a;
+      margin-bottom: 6px;
+    }
+    .subject {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+    .date {
+      color: #888;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .greeting {
+      margin-bottom: 20px;
+    }
+    .link-box {
+      background: #f0fdf4;
+      border: 1px solid #16a34a;
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin: 20px 0;
+      font-size: 15px;
+    }
+    .link-box a {
+      color: #16a34a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #16a34a;
+      border-bottom: 1px solid #d1fae5;
+      padding-bottom: 6px;
+      margin-top: 30px;
+      margin-bottom: 14px;
+    }
+    ul {
+      padding-right: 20px;
+      margin: 0;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .tech-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    .tech-table td:first-child {
+      color: #555;
+      width: 170px;
+      font-weight: bold;
+    }
+    .tech-table tr:nth-child(even) {
+      background: #f9fafb;
+    }
+    .notes-box {
+      background: #fffbeb;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 24px;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+    .notes-box ul {
+      padding-right: 18px;
+      margin-top: 10px;
+    }
+    .notes-box li {
+      margin-bottom: 10px;
+    }
+    .notes-box code {
+      font-family: Consolas, 'Courier New', monospace;
+      font-size: 12px;
+      background: #fef3c7;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .footer {
+      margin-top: 40px;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 20px;
+      color: #555;
+      font-size: 14px;
+    }
+    @media print {
+      body { margin: 20px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo-text">أزكى</div>
+    <div class="subject">تقرير تحديث الموقع الإلكتروني — عرض للإدارة</div>
+    <div class="date">19 أبريل 2026</div>
+  </div>
+
+  <div class="greeting">
+    <p>السادة الكرام،</p>
+    <p>أرفق لكم ملخصاً محدّثاً لحالة الموقع الإلكتروني لشركة أزكى بعد آخر تطويرات المحتوى والواجهة والأنظمة المعروضة، ليسهل الاطلاع عليه أو طباعته وإرفاقه ضمن أعمال الإدارة.</p>
+  </div>
+
+  <div class="link-box">
+    🔗 رابط النشر الحالي (مثال): <a href="https://azka-website.vercel.app">https://azka-website.vercel.app</a>
+    <div style="font-size: 13px; color: #555; margin-top: 8px;">يُحدَّث تلقائياً عند رفع أي تعديل على مستودع الكود المرتبط بالاستضافة.</div>
+  </div>
+
+  <div class="section-title">أبرز ما يوفّره الموقع حالياً</div>
+  <ul>
+    <li>تصميم عصري يعكس هوية الشركة مع حركة خفيفة في العناصر (Framer Motion)</li>
+    <li>دعم كامل للغتين <strong>العربية والإنجليزية</strong> عبر <strong>next-intl</strong> مع تبديل فوري من شريط التنقل</li>
+    <li><strong>13 نظاماً</strong> معروضاً في قسم الخدمات، ولكل نظام <strong>صفحة تفاصيل</strong> مستقلة (المسارات: <code>/ar/systems/…</code> و <code>/en/systems/…</code>)</li>
+    <li>إضافة <strong>نظام الميزانية والموازنات</strong> كمنتج مستقل عن النظام المالي، مع صفحة خاصة ومعرض ثلاثي الصور من أصولكم</li>
+    <li><strong>صور غلاف مخصصة</strong> لكل بطاقة نظام في الصفحة الرئيسية (ملفات PNG في <code>public/images/</code> بأسماء عربية حسب التصميم المعتمد)</li>
+    <li><strong>معرض «صور المواصفات»</strong> في صفحة النظام: لقطات فعلية للنظام المالي والحضور والميزانية؛ وللبقية <strong>شاشتان توضيحيتان مرسومتان من النص</strong> (قائمة ميزات وواجهة مقترحة) بدلاً من صور جاهزة من الإنترنت</li>
+    <li><strong>مساعد محادثة</strong> على الصفحة الرئيسية يجيب عن أسئلة شائعة باللغتين، مع إصلاح عرض زر الإرسال في الواجهة العربية (RTL)</li>
+    <li>متوافق مع أحجام الشاشات المختلفة، ومُهيَّأ لمحركات البحث (sitemap و robots)</li>
+    <li><strong>الوضع الفاتح والداكن</strong> مع حفظ تفضيل المستخدم في المتصفح</li>
+  </ul>
+
+  <div class="section-title">قائمة الأنظمة الـ 13 (كما تظهر للزائر)</div>
+  <ol style="padding-right: 22px; line-height: 1.9;">
+    <li>الموارد البشرية</li>
+    <li>الحضور والانصراف</li>
+    <li>النظام المالي</li>
+    <li>نظام الميزانية والموازنات</li>
+    <li>الأرشفة الإلكترونية</li>
+    <li>المشتريات والعقود</li>
+    <li>الاتصالات الإدارية</li>
+    <li>إدارة المستودعات</li>
+    <li>الخدمات الذاتية</li>
+    <li>البصمة الحيوية</li>
+    <li>تصاريح الدخول</li>
+    <li>تطبيقات الجوال</li>
+    <li>الربط والتكامل</li>
+  </ol>
+
+  <div class="section-title">التفاصيل التقنية (مرجع سريع)</div>
+  <table class="tech-table">
+    <tr><td>إطار العمل</td><td>Next.js 16 (App Router) + React 19</td></tr>
+    <tr><td>التصميم</td><td>Tailwind CSS 4</td></tr>
+    <tr><td>اللغات</td><td>next-intl — ملفات <code>messages/ar.json</code> و <code>messages/en.json</code></td></tr>
+    <tr><td>ربط الأنظمة والصور</td><td>ملف تكوين مركزي <code>lib/systems.ts</code> (<code>systemCoverImages</code>، <code>systemGalleryImages</code>، ودالة <code>systemUsesPhotoGallery</code> للتمييز بين الصور الحقيقية والشاشات التوضيحية)</td></tr>
+    <tr><td>معرض توضيحي بدون صور</td><td>مكوّن <code>components/systems/SystemGalleryIllustration.tsx</code></td></tr>
+    <tr><td>صورة الهيرو</td><td><code>public/images/stock/site-hero-bg.jpg</code> (مصدر Unsplash — مذكور في تذييل الموقع)</td></tr>
+    <tr><td>التحقق من الملفات</td><td>سكربت <code>node scripts/verify-stock-images.mjs</code> للتأكد من وجود كل مسارات الصور المستخدمة</td></tr>
+    <tr><td>الاستضافة</td><td>Vercel (نشر سحابي)</td></tr>
+    <tr><td>المستودع</td><td>github.com/rasheed79/azka-website</td></tr>
+  </table>
+
+  <div class="section-title">ملاحق تشغيلية وتطويرية</div>
+  <div class="notes-box">
+    <p><strong>تحديث صور الأنظمة</strong></p>
+    <ul>
+      <li>غلاف بطاقة الخدمات: يُحدَّث باستبدال ملف PNG في <code>public/images/</code> وتعديل المسار في <code>lib/systems.ts</code> إن تغيّر اسم الملف.</li>
+      <li>معرض الأنظمة الثلاثة (مالي، حضور، ميزانية): يستخدم مسارات الصور المخصصة نفسها؛ أي استبدال للملف يُفضّل مع تغيير اسم الملف قليلاً لتفادي التخزين المؤقت للمتصفح.</li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>المظهر (فاتح / داكن)</strong></p>
+    <ul>
+      <li>الوضع الفاتح افتراضي عند أول زيارة؛ يُحفظ الاختيار تحت المفتاح <code>azka-theme</code> بالقيمتين <code>light</code> أو <code>dark</code>.</li>
+      <li>نصوص أزرار المظهر في ملفي الرسائل تحت <code>theme_to_light</code> و <code>theme_to_dark</code>.</li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>الشعار</strong></p>
+    <ul>
+      <li>يُستخدم <code>logo-white.png</code> مع تعديل بصري في الوضع الفاتح لظهور أوضح على الخلفية الفاتحة.</li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>نموذج التواصل</strong></p>
+    <ul>
+      <li>يعتمد على Formspree؛ لا يزال يتطلب استبدال المعرف التجريبي <code>YOUR_FORM_ID</code> في <code>components/sections/Contact.tsx</code> بمعرف النموذج الفعلي بعد إنشائه في موقع Formspree.</li>
+    </ul>
+    <p style="margin-top: 18px;"><strong>تشغيل المشروع محلياً</strong></p>
+    <ul>
+      <li>من جذر المشروع: <code>npm install</code> ثم <code>npm run dev</code> — يعمل عادة على <code>http://localhost:3000</code> مع إعادة توجيه للغة الافتراضية.</li>
+    </ul>
+    <p style="margin-top: 14px; color: #666; font-size: 13px;">آخر تحديث لمحتوى هذا التقرير: 19 أبريل 2026.</p>
+  </div>
+
+  <div class="footer">
+    <p>نرحب بملاحظات الإدارة وأي أولويات لمحتوى إضافي أو تعديلات على الصياغة أو الصور.</p>
+    <p>مع التحية،<br><strong>فريق تقنية المعلومات</strong></p>
+  </div>
+
+</body>
+</html>
