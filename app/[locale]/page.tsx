@@ -3,6 +3,7 @@ import About from '@/components/sections/About';
 import VMV from '@/components/sections/VMV';
 import Services from '@/components/sections/Services';
 import Stats from '@/components/sections/Stats';
+import Clients from '@/components/sections/Clients';
 import Contact from '@/components/sections/Contact';
 
 interface PageProps {
@@ -19,6 +20,7 @@ export default async function HomePage({ params }: PageProps) {
       <VMV />
       <Services locale={locale} />
       <Stats />
+      <Clients />
       <Contact />
     </>
   );

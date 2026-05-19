@@ -3,6 +3,7 @@
     "about": "About Us",
     "services": "Services",
     "stats": "Our Numbers",
+    "clients": "Our Clients",
     "contact": "Contact",
     "switchLang": "العربية",
     "theme_to_light": "Switch to light mode",
@@ -311,5 +312,36 @@
         "benefits": ["Unified, non-duplicate data", "Reduce manual data entry", "Comprehensive unified view", "Higher operational efficiency"]
       }
     }
+  },
+  "clients": {
+    "title": "Our Valued Clients",
+    "subtitle": "We are proud to serve leading government and national institutions across Saudi Arabia",
+    "list": [
+      "Royal Court - Private Affairs of the Custodian of the Two Holy Mosques",
+      "Crown Prince Court - Private Affairs of His Royal Highness the Crown Prince",
+      "Human Rights Commission",
+      "Board of Experts at the Council of Ministers",
+      "General Secretariat of the Council of Ministers",
+      "General Secretariat of the Military Service Council",
+      "General Directorate of Medical Services for the Armed Forces",
+      "Supreme Judicial Council",
+      "National Center for Archives and Records",
+      "Saudi Health Council",
+      "Office of HRH Prince Abdulaziz bin Fahd Al Saud for Research and Studies",
+      "Office of HRH Prince Muqrin bin Abdulaziz",
+      "Presidency of the Council of Ministers Diwan",
+      "Personnel and Officers Affairs of the Royal Guard",
+      "Royal Clinic",
+      "Royal Palaces - Domestic and Abroad",
+      "Ministry of Commerce",
+      "Supreme Council for Petroleum and Minerals",
+      "Jeddah Governorate Police",
+      "Saudi Arabian Airlines (Saudia)",
+      "Office of the Minister of Defense",
+      "Security Affairs - Makkah Al-Mukarramah Region Emirate",
+      "Jeddah Municipal Council",
+      "Islamic University of Madinah",
+      "Center for Studies and Media Affairs"
+    ]
   }
 }

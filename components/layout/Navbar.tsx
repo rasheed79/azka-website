@@ -41,6 +41,7 @@ export default function Navbar({ locale }: NavbarProps) {
     { hash: 'about' as const, label: t('about') },
     { hash: 'services' as const, label: t('services') },
     { hash: 'stats' as const, label: t('stats') },
+    { hash: 'clients' as const, label: t('clients') },
     { hash: 'contact' as const, label: t('contact') },
   ];
 
