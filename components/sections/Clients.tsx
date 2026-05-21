@@ -19,13 +19,26 @@ const LOGO_MAP: Record<string, string> = {
   'الديوان الملكي': '1.webp',
   'الشئون الخاصة لخادم الحرمين الشريفين': '1.webp',
   'الشئون الخاصة لسمو ولي العهد': '1.webp',
-  'الخطوط الجوية العربية السعودية': 'سعودية.png',
-  'وزارة التجارة': 'وزارة-التجارة.png',
-  'الجامعة الإسلامية بالمدينة المنورة': 'الجامعة-الاسلامية.png',
-  'المجلس الصحي السعودي': 'المجلس-الصحي.png',
+  'الخطوط الجوية العربية السعودية': '19.png',
+  'وزارة التجارة': '17.svg',
+  'شرطة محافظة جدة': '18.jpg',
+  'الشئون الأمنية بإمارة منطقة مكة المكرمة': '20.svg',
+  'المجلس البلدي بمحافظة جدة': '21.svg',
+  'مركز الدراسات والشئون الإعلامية': '1.webp',
+  'الجامعة الإسلامية بالمدينة المنورة': '22.svg',
+  'المجلس الصحي السعودي': '11.svg',
   'هيئة حقوق الإنسان': '4.png',
   'هيئة الخبراء بمجلس الوزراء': '5.svg',
   'الأمانة العامة بمجلس الوزراء': '6.webp',
+  'الأمانة العامة لمجلس الخدمة العسكرية': '7.png',
+  'الإدارة العامة للخدمات الطبية للقوات المسلحة': '8.png',
+  'المجلس الأعلى للقضاء': '9.png',
+  'المركز الوطني للوثائق والمحفوظات': '10.svg',
+  'مكتب صاحب السمو الملكي الأمير عبدالعزيز بن فهد آل سعود للبحوث والدراسات': '1.webp',
+  'مكتب صاحب السمو الملكي الأمير مقرن بن عبدالعزيز': '1.webp',
+  'شئون الأفراد والضباط في الحرس الملكي': '14.svg',
+  'العيادة الملكية': '1.webp',
+  'القصور الملكية بالداخل والخارج': '1.webp',
 };
 
 export default function Clients() {
@@ -70,7 +83,10 @@ export default function Clients() {
                 <div className="group flex flex-col items-center text-center p-5 rounded-2xl bg-white dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/50 hover:border-emerald-400/60 dark:hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/5 transition-all duration-300 cursor-default h-full backdrop-blur-sm">
 
                   {/* Logo area */}
-                  <div className="w-full aspect-[16/9] mx-auto mb-4 rounded-xl overflow-hidden bg-white dark:bg-white border border-slate-100 dark:border-slate-200 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                  <div
+                    className="w-full aspect-[16/9] mx-auto mb-4 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-200 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-sm"
+                    style={{ backgroundColor: 'white' }}
+                  >
                     {logoSrc ? (
                       <Image
                         src={logoSrc}
@@ -78,7 +94,8 @@ export default function Clients() {
                         width={400}
                         height={225}
                         quality={100}
-                        className={`object-contain w-full h-full ${logoFile === '5.svg' ? 'p-1 scale-125' : 'p-3'}`}
+                        className={`object-contain w-full h-full ${['1.webp', '6.webp'].includes(logoFile ?? '') ? 'p-1 scale-150' : logoFile === '7.png' ? 'p-1 scale-[1.1]' : 'p-3'}`}
+                        style={logoFile === '19.png' ? { filter: 'brightness(0) saturate(100%) invert(37%) sepia(47%) saturate(500%) hue-rotate(95deg) brightness(90%) contrast(90%)' } : undefined}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-500/10 to-teal-500/10">
