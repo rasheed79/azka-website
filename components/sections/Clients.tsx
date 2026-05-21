@@ -66,14 +66,14 @@ export default function Clients() {
                 <div className="group flex flex-col items-center text-center p-5 rounded-2xl bg-white dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/50 hover:border-emerald-400/60 dark:hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/5 transition-all duration-300 cursor-default h-full backdrop-blur-sm">
 
                   {/* Logo area */}
-                  <div className="w-full aspect-square max-w-[120px] mx-auto mb-4 rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-600/50 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                  <div className="w-full aspect-[16/9] mx-auto mb-4 rounded-xl overflow-hidden bg-white dark:bg-white border border-slate-100 dark:border-slate-200 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-sm">
                     {logoSrc ? (
                       <Image
                         src={logoSrc}
                         alt={client}
                         width={120}
                         height={120}
-                        className="object-contain w-full h-full p-3"
+                        className="object-contain w-full h-full p-2"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-500/10 to-teal-500/10">
