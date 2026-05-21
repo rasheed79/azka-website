@@ -1,30 +1,28 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Building2, Crown, Landmark, Plane, GraduationCap, Shield, Scale } from 'lucide-react';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection';
 
 function getIcon(name: string) {
-  if (name.includes('ملكي') || name.includes('Royal') || name.includes('Crown') || name.includes('Prince') || name.includes('سمو') || name.includes('ديوان') || name.includes('عيادة') || name.includes('قصور')) {
-    return Crown;
-  }
-  if (name.includes('جامعة') || name.includes('University') || name.includes('دراسات') || name.includes('Studies')) {
-    return GraduationCap;
-  }
-  if (name.includes('خطوط') || name.includes('Airlines') || name.includes('Saudia')) {
-    return Plane;
-  }
-  if (name.includes('قضاء') || name.includes('Judicial') || name.includes('حقوق') || name.includes('Rights')) {
-    return Scale;
-  }
-  if (name.includes('أمن') || name.includes('شرطة') || name.includes('Security') || name.includes('Police') || name.includes('حرس') || name.includes('Guard') || name.includes('مسلح') || name.includes('Armed') || name.includes('دفاع') || name.includes('Defense')) {
-    return Shield;
-  }
-  if (name.includes('وزارة') || name.includes('Ministry') || name.includes('مجلس') || name.includes('Council') || name.includes('هيئة') || name.includes('Commission') || name.includes('أمانة') || name.includes('Secretariat')) {
-    return Landmark;
-  }
+  if (name.includes('ملكي') || name.includes('Royal') || name.includes('Crown') || name.includes('Prince') || name.includes('سمو') || name.includes('ديوان') || name.includes('عيادة') || name.includes('قصور')) return Crown;
+  if (name.includes('جامعة') || name.includes('University') || name.includes('دراسات') || name.includes('Studies')) return GraduationCap;
+  if (name.includes('خطوط') || name.includes('Airlines') || name.includes('Saudia')) return Plane;
+  if (name.includes('قضاء') || name.includes('Judicial') || name.includes('حقوق') || name.includes('Rights')) return Scale;
+  if (name.includes('أمن') || name.includes('شرطة') || name.includes('Security') || name.includes('Police') || name.includes('حرس') || name.includes('Guard') || name.includes('مسلح') || name.includes('Armed') || name.includes('دفاع') || name.includes('Defense')) return Shield;
+  if (name.includes('وزارة') || name.includes('Ministry') || name.includes('مجلس') || name.includes('Council') || name.includes('هيئة') || name.includes('Commission') || name.includes('أمانة') || name.includes('Secretariat')) return Landmark;
   return Building2;
 }
+
+// Map client names to logo filenames in /images/لوجو العملاء/
+const LOGO_MAP: Record<string, string> = {
+  'الخطوط الجوية العربية السعودية': 'سعودية.png',
+  'وزارة التجارة': 'وزارة-التجارة.png',
+  'الجامعة الإسلامية بالمدينة المنورة': 'الجامعة-الاسلامية.png',
+  'المجلس الصحي السعودي': 'المجلس-الصحي.png',
+  'هيئة حقوق الإنسان': 'هيئة-حقوق-الانسان.png',
+};
 
 export default function Clients() {
   const t = useTranslations('clients');
@@ -50,13 +48,31 @@ export default function Clients() {
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" staggerDelay={0.05}>
           {list.map((client: string) => {
             const Icon = getIcon(client);
+            const logoFile = LOGO_MAP[client];
+            const logoSrc = logoFile ? `/images/لوجو العملاء/${logoFile}` : null;
+
             return (
               <StaggerItem key={client}>
-                <div className="flex items-start gap-4 p-5 rounded-2xl bg-white/90 border border-emerald-200/60 hover:border-emerald-400/50 hover:shadow-md dark:bg-slate-800/50 dark:border-slate-700/50 dark:hover:border-emerald-500/30 transition-all duration-300 h-full">
-                  <div className="w-10 h-10 flex-shrink-0 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mt-0.5">
-                    <Icon size={18} className="text-emerald-600 dark:text-emerald-400" />
+                <div className="flex items-center gap-4 p-5 rounded-2xl bg-white/90 border border-emerald-200/60 hover:border-emerald-400/50 hover:shadow-md dark:bg-slate-800/50 dark:border-slate-700/50 dark:hover:border-emerald-500/30 transition-all duration-300 h-full group">
+                  {/* Logo or icon */}
+                  <div className="w-14 h-14 flex-shrink-0 rounded-xl bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 flex items-center justify-center overflow-hidden shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                    {logoSrc ? (
+                      <Image
+                        src={logoSrc}
+                        alt={client}
+                        width={48}
+                        height={48}
+                        className="object-contain w-full h-full p-1"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-emerald-500/10">
+                        <Icon size={22} className="text-emerald-600 dark:text-emerald-400" />
+                      </div>
+                    )}
                   </div>
-                  <p className="text-slate-800 dark:text-slate-200 text-sm font-medium leading-snug">
+
+                  {/* Name */}
+                  <p className="text-slate-800 dark:text-slate-200 text-sm font-medium leading-snug flex-1">
                     {client}
                   </p>
                 </div>
