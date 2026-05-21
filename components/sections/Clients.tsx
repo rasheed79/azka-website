@@ -78,7 +78,7 @@ export default function Clients() {
                         width={400}
                         height={225}
                         quality={100}
-                        className="object-contain w-full h-full p-3"
+                        className={`object-contain w-full h-full ${logoFile === '5.svg' ? 'p-1 scale-125' : 'p-3'}`}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-500/10 to-teal-500/10">
