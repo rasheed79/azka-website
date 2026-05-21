@@ -71,9 +71,10 @@ export default function Clients() {
                       <Image
                         src={logoSrc}
                         alt={client}
-                        width={120}
-                        height={120}
-                        className="object-contain w-full h-full p-2"
+                        width={400}
+                        height={225}
+                        quality={100}
+                        className="object-contain w-full h-full p-0"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-500/10 to-teal-500/10">
