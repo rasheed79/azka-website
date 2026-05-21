@@ -25,6 +25,7 @@ const LOGO_MAP: Record<string, string> = {
   'المجلس الصحي السعودي': 'المجلس-الصحي.png',
   'هيئة حقوق الإنسان': '4.png',
   'هيئة الخبراء بمجلس الوزراء': '5.svg',
+  'الأمانة العامة بمجلس الوزراء': '6.webp',
 };
 
 export default function Clients() {
