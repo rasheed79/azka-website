@@ -1,9 +1,11 @@
 export const systemSlugs = [
   'hr',
   'attendance',
+  'attendance-app',
   'financial',
   'budget',
   'archiving',
+  'archiving-web',
   'procurement',
   'communications',
   'warehouse',
@@ -19,9 +21,11 @@ export type SystemSlug = (typeof systemSlugs)[number];
 export const systemIcons: Record<SystemSlug, string> = {
   hr: 'Users',
   attendance: 'Clock',
+  'attendance-app': 'ScanFace',
   financial: 'BarChart3',
   budget: 'PieChart',
   archiving: 'Archive',
+  'archiving-web': 'Globe',
   procurement: 'ShoppingCart',
   communications: 'MessageSquare',
   warehouse: 'Package',
@@ -35,9 +39,11 @@ export const systemIcons: Record<SystemSlug, string> = {
 export const systemColors: Record<SystemSlug, string> = {
   hr: 'from-blue-500 to-blue-600',
   attendance: 'from-purple-500 to-purple-600',
+  'attendance-app': 'from-fuchsia-500 to-fuchsia-600',
   financial: 'from-emerald-500 to-emerald-600',
   budget: 'from-cyan-600 to-teal-700',
   archiving: 'from-orange-500 to-orange-600',
+  'archiving-web': 'from-amber-500 to-amber-600',
   procurement: 'from-rose-500 to-rose-600',
   communications: 'from-teal-500 to-teal-600',
   warehouse: 'from-yellow-500 to-yellow-600',
@@ -50,10 +56,16 @@ export const systemColors: Record<SystemSlug, string> = {
 
 /**
  * Custom PNG covers (homepage cards) in public/images/. Hero may use stock (see public/images/stock/LICENSE.txt).
- * Detail-page gallery: real screenshots only for financial, attendance, and budget; other systems use illustrated mockups from copy.
+ * Detail-page gallery: real screenshots only for financial, attendance, budget, attendance-app, and archiving-web; other systems use illustrated mockups from copy.
  */
 export function systemUsesPhotoGallery(slug: SystemSlug): boolean {
-  return slug === 'financial' || slug === 'attendance' || slug === 'budget';
+  return (
+    slug === 'financial' ||
+    slug === 'attendance' ||
+    slug === 'budget' ||
+    slug === 'attendance-app' ||
+    slug === 'archiving-web'
+  );
 }
 
 /** Custom covers for public/images/ — service grid only; detail gallery uses stock pairs below. */
@@ -61,6 +73,16 @@ export const attendanceCardImage = '/images/الحضور والانصراف.webp
 /** Detail-page gallery for attendance — filenames as stored in public/images/ */
 export const attendanceGalleryImage1 = '/images/صور نظام الحصور والانصراف الداخلية 1.png';
 export const attendanceGalleryImage2 = '/images/صور نظام الحصور والانصراف الداخلية 2.png';
+/** Rased mobile app — services card cover, extracted from product brochure */
+export const attendanceAppCardImage = '/images/تطبيق راصد.webp';
+/** Detail-page gallery for Rased — extracted from product brochure */
+export const attendanceAppGalleryImage1 = '/images/صور نظام راصد الداخلية 1.webp';
+export const attendanceAppGalleryImage2 = '/images/صور نظام راصد الداخلية 2.webp';
+/** Web archiving edition — services card cover, extracted from product brochure */
+export const archivingWebCardImage = '/images/الأرشفة الويب.webp';
+/** Detail-page gallery for web archiving — extracted from product brochure */
+export const archivingWebGalleryImage1 = '/images/صور نظام الأرشفة ويب الداخلية 1.webp';
+export const archivingWebGalleryImage2 = '/images/صور نظام الأرشفة ويب الداخلية 2.webp';
 export const hrCardImage = '/images/الموارد البشرية.webp';
 export const financialCardImage = '/images/النظام المالي.webp';
 /** Detail-page gallery for financial — custom screens in public/images/ */
@@ -87,9 +109,11 @@ export const UNSPLASH_LICENSE_URL = 'https://unsplash.com/license';
 export const systemCoverImages: Record<SystemSlug, string> = {
   hr: hrCardImage,
   attendance: attendanceCardImage,
+  'attendance-app': attendanceAppCardImage,
   financial: financialCardImage,
   budget: budgetCardImage,
   archiving: archivingCardImage,
+  'archiving-web': archivingWebCardImage,
   procurement: procurementCardImage,
   communications: communicationsCardImage,
   warehouse: warehouseCardImage,
@@ -104,6 +128,8 @@ function galleryForSlug(slug: SystemSlug): readonly string[] {
   if (slug === 'financial') return [financialGalleryImage1, financialGalleryImage2];
   if (slug === 'attendance') return [attendanceGalleryImage1, attendanceGalleryImage2];
   if (slug === 'budget') return [budgetGalleryImage1, budgetGalleryImage2, budgetGalleryImage3];
+  if (slug === 'attendance-app') return [attendanceAppGalleryImage1, attendanceAppGalleryImage2];
+  if (slug === 'archiving-web') return [archivingWebGalleryImage1, archivingWebGalleryImage2];
   return [];
 }
 
@@ -115,9 +141,11 @@ export const systemGalleryImages = Object.fromEntries(
 export const systemBgColors: Record<SystemSlug, string> = {
   hr: 'bg-blue-500/10 border-blue-500/20',
   attendance: 'bg-purple-500/10 border-purple-500/20',
+  'attendance-app': 'bg-fuchsia-500/10 border-fuchsia-500/20',
   financial: 'bg-emerald-500/10 border-emerald-500/20',
   budget: 'bg-teal-500/10 border-teal-500/20',
   archiving: 'bg-orange-500/10 border-orange-500/20',
+  'archiving-web': 'bg-amber-500/10 border-amber-500/20',
   procurement: 'bg-rose-500/10 border-rose-500/20',
   communications: 'bg-teal-500/10 border-teal-500/20',
   warehouse: 'bg-yellow-500/10 border-yellow-500/20',

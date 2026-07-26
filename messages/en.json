@@ -62,6 +62,10 @@
         "name": "Attendance & Departure",
         "desc": "Accurate tracking of employee attendance times with automatic payroll integration"
       },
+      "attendance-app": {
+        "name": "Rasid App",
+        "desc": "Smart mobile app for attendance via face recognition and GPS location"
+      },
       "financial": {
         "name": "Financial System",
         "desc": "General ledger, AR/AP, reporting, and integration with payroll, procurement, and fixed assets"
@@ -71,8 +75,12 @@
         "desc": "Build annual budgets, track commitments vs. actuals, and manage transfers between budget lines"
       },
       "archiving": {
-        "name": "Electronic Archiving",
-        "desc": "Digitize and archive documents with instant search and retrieval capabilities"
+        "name": "Electronic Archiving (Desktop)",
+        "desc": "Digitize and archive documents with instant search and retrieval — for small organizations"
+      },
+      "archiving-web": {
+        "name": "Electronic Archiving (Web)",
+        "desc": "Browser-based digital content management for large, multi-branch organizations"
       },
       "procurement": {
         "name": "Procurement & Contracts",
@@ -189,14 +197,14 @@
       { "answer": "Where are your offices?", "keywords": ["where", "office", "offices", "location", "address", "map", "jeddah", "jeddah office", "ksa", "saudi", "saudi arabia", "1485", "21431", "p.o", "po box", "branches", "headquarters", "hq", "مكتب", "جدة", "فروع", "مقر"] },
       { "answer": "Do you serve government entities?", "keywords": ["government", "ministry", "ministries", "public sector", "semi-government", "national company", "private sector", "حكومي", "وزارة", "قطاع عام", "وطنية", "أهلية"] },
       { "answer": "Who are your clients?", "keywords": ["clients", "customers", "references", "projects done", "portfolio", "case studies", "77 projects", "success stories", "عملاء", "مشاريع", "تجارب"] },
-      { "answer": "What systems do you offer?", "keywords": ["systems", "system", "software", "solutions", "products", "modules", "financial system", "finance software", "accounting", "accounting software", "general ledger", "erp", "budget", "budgeting", "budget system", "annual budget", "human resources", "hr system", "payroll", "attendance", "time attendance", "shift", "warehouse", "inventory", "stock", "archiving", "e-archiving", "documents", "digitization", "procurement", "tenders", "contracts", "purchasing", "administrative communications", "correspondence", "self service", "employee portal", "biometric", "fingerprint", "face recognition", "access permits", "access control", "mobile app", "ios", "android", "integration", "api", "web service", "middleware", "أنظمة", "نظام", "نظام مالي", "مالي", "مالية", "محاسبة", "موارد بشرية", "حضور", "انصراف", "مستودع", "مخزون", "أرشفة", "مشتريات", "مناقصات", "مراسلات", "خدمات ذاتية", "بصمة", "تصاريح", "تطبيق", "تكامل", "ربط"] },
+      { "answer": "What systems do you offer?", "keywords": ["systems", "system", "software", "solutions", "products", "modules", "financial system", "finance software", "accounting", "accounting software", "general ledger", "erp", "budget", "budgeting", "budget system", "annual budget", "human resources", "hr system", "payroll", "attendance", "time attendance", "shift", "warehouse", "inventory", "stock", "archiving", "e-archiving", "documents", "digitization", "procurement", "tenders", "contracts", "purchasing", "administrative communications", "correspondence", "self service", "employee portal", "biometric", "fingerprint", "face recognition", "access permits", "access control", "mobile app", "rasid", "ios", "android", "integration", "api", "web service", "middleware", "أنظمة", "نظام", "نظام مالي", "مالي", "مالية", "محاسبة", "موارد بشرية", "حضور", "انصراف", "مستودع", "مخزون", "أرشفة", "مشتريات", "مناقصات", "مراسلات", "خدمات ذاتية", "بصمة", "تصاريح", "تطبيق", "تكامل", "ربط"] },
       { "answer": "What are Azka's services?", "keywords": ["services", "what do you do", "what you offer", "offerings", "capabilities", "digital transformation", "it services", "information technology", "computers", "software development", "automated systems", "خدمات", "حلول تقنية", "تحول رقمي", "شو تسوون", "ماذا تقدمون"] }
     ],
     "answers": {
       "What are Azka's services?": "Azka provides comprehensive IT services including:\n• Planning, design, and building of automated systems\n• HR and attendance management systems\n• Financial, budgeting, and electronic archiving solutions\n• Procurement and administrative communications\n• Mobile apps and systems integration",
       "How to contact you?": "You can reach us via:\n📞 Phone: +966503495776 | +966552554570\n📠 Fax: +966 (12) 6500171\n📧 Email: connect@azka.com\n\nOr fill out the contact form at the bottom of the page.",
       "What are your working hours?": "Our working hours:\n🟢 Sunday — Thursday: 8:00 AM — 5:00 PM\n🟡 Saturday: 12:00 PM — 4:00 PM\n🔴 Friday: Closed",
-      "What systems do you offer?": "We offer 13 integrated systems:\n1. Human Resources\n2. Attendance & Departure\n3. Financial System\n4. Budgeting System\n5. Electronic Archiving\n6. Procurement & Contracts\n7. Administrative Communications\n8. Warehouse Management\n9. Self Services\n10. Biometric Recognition\n11. Access Permits\n12. Mobile App Development\n13. Systems Integration",
+      "What systems do you offer?": "We offer 15 integrated systems and products:\n1. Human Resources\n2. Attendance & Departure\n3. Rasid App (Attendance & Departure)\n4. Financial System\n5. Budgeting System\n6. Electronic Archiving (Desktop)\n7. Electronic Archiving (Web)\n8. Procurement & Contracts\n9. Administrative Communications\n10. Warehouse Management\n11. Self Services\n12. Biometric Recognition\n13. Access Permits\n14. Mobile App Development\n15. Systems Integration",
       "Where are your offices?": "Our headquarters is in:\n📍 Jeddah, Saudi Arabia\nP.O.Box: 1485, Jeddah 21431\n\nWe have 4 offices across the Kingdom.",
       "Do you serve government entities?": "Absolutely! We have the honor of serving numerous government entities across Saudi Arabia, in addition to national and private companies, with outstanding success in all our projects.",
       "How to request a quote?": "To request a quote:\n1. Fill out the contact form on the main page\n2. Email us: connect@azka.com\n3. Call us directly: +966503495776 | +966552554570\n\nOur team will get back to you within one business day.",
@@ -232,6 +240,13 @@
         "features": ["Automated check-in/check-out", "Fingerprint & face recognition", "Shift & schedule management", "Automatic overtime calculation", "Absence & lateness reports", "Real-time supervisor alerts"],
         "benefits": ["Save time on payroll processing", "Complete attendance accuracy", "Full transparency with employees", "Reduce administrative disputes"]
       },
+      "attendance-app": {
+        "name": "Rasid App",
+        "tagline": "Smart Discipline, Anywhere You Are",
+        "description": "An integrated cloud app for Android and iOS that tracks employee attendance with precision, supporting multi-location GPS verification and advanced biometrics, plus tools for oversight and employee self-motivation.",
+        "features": ["Triple biometric verification: 3D face ID, fingerprint, and Beacon", "Multi-location support with GPS verification", "Self-service requests for leave, permissions, tasks & training", "Random inspection rounds via SMS, app alert & email", "Instant alerts and electronic accountability for missed check-ins", "Personal performance indicators: regularity score & peer ranking", "Electronic approval or rejection of employee requests by managers"],
+        "benefits": ["Real technical discipline via dual GPS and biometric verification", "Full transparency with real-time personal record access", "Self-motivation through peer performance comparison", "Lighter administrative load through automated requests & approvals"]
+      },
       "financial": {
         "name": "Financial System",
         "tagline": "Comprehensive and Integrated Financial Solutions",
@@ -247,11 +262,18 @@
         "benefits": ["Clear visibility on fund usage", "Decisions grounded in live execution data", "Fewer budget overruns", "Faster annual budget cycles"]
       },
       "archiving": {
-        "name": "Electronic Archiving System",
-        "tagline": "Smart Digitization for All Your Documents",
-        "description": "An advanced electronic archiving system for digitizing, storing, and managing all organizational documents with instant search and retrieval of any document in seconds.",
+        "name": "Electronic Archiving System (Desktop)",
+        "tagline": "Smart Digitization for All Your Documents — Desktop Edition",
+        "description": "An electronic archiving system installed on the organization's own machines (Desktop), for digitizing, storing, and managing all documents — suited to small organizations that don't need a web-based rollout.",
         "features": ["Scanning & automatic indexing", "Full-text document search", "Document lifecycle management", "Tiered access permissions", "Automatic backup", "Support for all file formats"],
         "benefits": ["Save physical storage space", "Instant document retrieval", "Protect documents from loss", "Accelerate administrative processes"]
+      },
+      "archiving-web": {
+        "name": "Electronic Archiving System (Web)",
+        "tagline": "A Complete Web Application for Document Management",
+        "description": "A digital content management system built as a web application for maximum flexibility and accessibility across multiple branches, meeting the needs of large organizations in managing their documents and data efficiently and securely.",
+        "features": ["Web application accessible from anywhere on any browser", "Support for Windows, Linux & iOS and multiple databases (SQL Server, Oracle, MySQL)", "Barcode & QR code reading plus OCR text extraction from images", "Metadata, authority lists, and hierarchical organizational structures", "Role-based permissions with LDAP or dedicated login support", "Data & file encryption with a full audit trail for every action", "Recovery of deleted or edited data", "Digital signature, email alerts, and a comprehensive dashboard"],
+        "benefits": ["Centralized security to global standards", "Full operational flexibility on any browser and OS", "Advanced smart search that handles Arabic language challenges", "Higher productivity through digital signatures and flexible reporting"]
       },
       "procurement": {
         "name": "Procurement, Contracts & Tenders",
