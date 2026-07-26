@@ -2,12 +2,10 @@ import type { Metadata } from 'next';
 import { Noto_Kufi_Arabic } from 'next/font/google';
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getTranslations } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { cookies } from 'next/headers';
 import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
-import { THEME_COOKIE } from '@/lib/theme';
 import '../globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -84,18 +82,16 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  setRequestLocale(locale);
   const messages = await getMessages();
   const isRtl = locale === 'ar';
   const fontClass = isRtl ? notoKufiArabic.variable : inter.variable;
-
-  const cookieStore = await cookies();
-  const isDark = cookieStore.get(THEME_COOKIE)?.value === 'dark';
 
   return (
     <html
       lang={locale}
       dir={isRtl ? 'rtl' : 'ltr'}
-      className={cn(fontClass, isDark && 'dark')}
+      className={cn(fontClass)}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
       style={{ scrollBehavior: 'smooth', fontFamily: isRtl ? 'var(--font-arabic)' : 'var(--font-inter)' }}

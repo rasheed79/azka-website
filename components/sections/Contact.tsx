@@ -7,7 +7,7 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { MapPin, Phone, Mail, Clock, CheckCircle2, AlertCircle, Send } from 'lucide-react';
 
 // Replace YOUR_FORM_ID with your actual Formspree form ID from formspree.io
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrenkyqn';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 

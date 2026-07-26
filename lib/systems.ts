@@ -57,29 +57,29 @@ export function systemUsesPhotoGallery(slug: SystemSlug): boolean {
 }
 
 /** Custom covers for public/images/ — service grid only; detail gallery uses stock pairs below. */
-export const attendanceCardImage = '/images/الحضور والانصراف.png';
+export const attendanceCardImage = '/images/الحضور والانصراف.webp';
 /** Detail-page gallery for attendance — filenames as stored in public/images/ */
 export const attendanceGalleryImage1 = '/images/صور نظام الحصور والانصراف الداخلية 1.png';
 export const attendanceGalleryImage2 = '/images/صور نظام الحصور والانصراف الداخلية 2.png';
-export const hrCardImage = '/images/الموارد البشرية.png';
-export const financialCardImage = '/images/النظام المالي.png';
+export const hrCardImage = '/images/الموارد البشرية.webp';
+export const financialCardImage = '/images/النظام المالي.webp';
 /** Detail-page gallery for financial — custom screens in public/images/ */
 export const financialGalleryImage1 = '/images/صورة نظام المالية داخلي 1.png';
 export const financialGalleryImage2 = '/images/صورة نظام المالية داخلي 2.png';
 /** Budget system — services card cover */
-export const budgetCardImage = '/images/الميزانية.png';
+export const budgetCardImage = '/images/الميزانية.webp';
 export const budgetGalleryImage1 = '/images/صورة نظام الميزانية الداخلية 1.png';
 export const budgetGalleryImage2 = '/images/صورة نظام الميزانية الداخلية 2.png';
 export const budgetGalleryImage3 = '/images/صورة نظام الميزانية الداخلية 3.png';
-export const archivingCardImage = '/images/الارشيف الالكتروني.png';
-export const procurementCardImage = '/images/المشتريات والعقود.png';
-export const communicationsCardImage = '/images/الاتصالات الادارية.png';
-export const warehouseCardImage = '/images/المستودعات.png';
-export const selfServiceCardImage = '/images/الخدمات الالكترونية.png';
-export const biometricCardImage = '/images/البصمة الحيوية.png';
-export const accessCardImage = '/images/تصاريح الدخول.png';
-export const mobileCardImage = '/images/تطبيقات جوال.png';
-export const integrationCardImage = '/images/الربط والتكامل.png';
+export const archivingCardImage = '/images/الارشيف الالكتروني.webp';
+export const procurementCardImage = '/images/المشتريات والعقود.webp';
+export const communicationsCardImage = '/images/الاتصالات الادارية.webp';
+export const warehouseCardImage = '/images/المستودعات.webp';
+export const selfServiceCardImage = '/images/الخدمات الالكترونية.webp';
+export const biometricCardImage = '/images/البصمة الحيوية.webp';
+export const accessCardImage = '/images/تصاريح الدخول.webp';
+export const mobileCardImage = '/images/تطبيقات جوال.webp';
+export const integrationCardImage = '/images/in_t.webp';
 
 export const UNSPLASH_LICENSE_URL = 'https://unsplash.com/license';
 

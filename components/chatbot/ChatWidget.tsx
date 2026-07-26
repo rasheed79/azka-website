@@ -7,6 +7,8 @@ import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { resolveChatbotAnswer, type ChatbotIntentRoute } from '@/lib/chatbotResolveAnswer';
 
+const CHAT_API_URL = process.env.NEXT_PUBLIC_CHAT_API_URL || '/api/chat';
+
 interface Message {
   id: string;
   role: 'bot' | 'user';
@@ -90,7 +92,7 @@ export default function ChatWidget({ locale }: ChatWidgetProps) {
     }));
 
     try {
-      const res = await fetch('/api/chat', {
+      const res = await fetch(CHAT_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: history }),

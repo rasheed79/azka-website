@@ -3,6 +3,8 @@ import { systemSlugs } from '@/lib/systems';
 
 const BASE_URL = 'https://www.azka.com';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = ['ar', 'en'];
 
