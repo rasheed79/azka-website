@@ -14,7 +14,7 @@
     "title_1": "Plan, Design,",
     "title_2": "Build & Manage",
     "title_3": "Automated Systems",
-    "subtitle": "Azka for Information Technology — Delivering cutting-edge IT solutions since 1989",
+    "subtitle": "Azka National for Information Technology — Delivering cutting-edge IT solutions since 1989",
     "cta_primary": "Explore Our Services",
     "cta_secondary": "Get In Touch",
     "scroll": "Scroll Down"
@@ -24,7 +24,7 @@
     "title": "We are Azka",
     "body1": "Azka for Systems and Computers was established in 1989. It initially focused on software development, then expanded to include computer hardware and accessories.",
     "body2": "Since its founding, Azka has continuously provided clients with the latest technologies to keep pace with the rapid evolution in information technology.",
-    "body3": "Azka is a certified Microsoft partner. The company was transformed into Azka for Information Technology in 2002.",
+    "body3": "Azka is a certified Microsoft partner. The company was transformed into Azka National for Information Technology in 2002.",
     "partner_ms": "Certified Microsoft Partner",
     "founded": "Founded 1989"
   },
@@ -155,11 +155,11 @@
   },
   "footer": {
     "tagline": "In Touch With Tomorrow",
-    "description": "Azka for Information Technology — Your trusted partner in digital transformation since 1989",
+    "description": "Azka National for Information Technology — Your trusted partner in digital transformation since 1989",
     "links_title": "Quick Links",
     "services_title": "Our Services",
     "contact_title": "Contact Us",
-    "rights": "All rights reserved — Azka for Information Technology",
+    "rights": "All rights reserved — Azka National for Information Technology",
     "photo_credit": "Homepage hero photography is from Unsplash contributors, free to use under the",
     "photo_credit_license": "Unsplash License"
   },
@@ -211,7 +211,7 @@
       "Who are your clients?": "We serve a wide range of clients across Saudi Arabia:\n🏛️ Multiple government entities\n🏢 Major national companies\n🏭 Private sector organizations\n\nWe have successfully completed over 77 projects.",
       "Who are you?": "I'm Azka's website assistant. I answer common questions about our services, hours, and contact options.\nFor quotes or detailed consulting, our team is available at:\n📞 +966503495776 | +966552554570\n📧 connect@azka.com",
       "Thanks!": "You're welcome! For anything else, use the contact section on this page or email connect@azka.com",
-      "About Azka?": "Azka for Information Technology is a Saudi company focused on planning, designing, building, and managing automated systems and IT solutions.\nWe are proud certified partners of Microsoft.\nLearn more in the About and Vision & Mission sections on this page, or reach us directly:\n📞 +966503495776 | +966552554570\n📧 connect@azka.com"
+      "About Azka?": "Azka National for Information Technology is a Saudi company focused on planning, designing, building, and managing automated systems and IT solutions.\nWe are proud certified partners of Microsoft.\nLearn more in the About and Vision & Mission sections on this page, or reach us directly:\n📞 +966503495776 | +966552554570\n📧 connect@azka.com"
     },
     "fallback": "Thank you for your question! For a more accurate answer, please contact our team directly:\n📧 connect@azka.com\n📞 +966503495776 | +966552554570"
   },
@@ -337,7 +337,8 @@
     "title": "Our Valued Clients",
     "subtitle": "We are proud to serve leading government and national institutions across Saudi Arabia",
     "list": [
-      "Royal Court - Private Affairs of the Custodian of the Two Holy Mosques",
+      "Royal Court",
+      "Private Affairs of the Custodian of the Two Holy Mosques",
       "Crown Prince Court - Private Affairs of His Royal Highness the Crown Prince",
       "Human Rights Commission",
       "Board of Experts at the Council of Ministers",
@@ -349,15 +350,12 @@
       "Saudi Health Council",
       "Office of HRH Prince Abdulaziz bin Fahd Al Saud for Research and Studies",
       "Office of HRH Prince Muqrin bin Abdulaziz",
-      "Presidency of the Council of Ministers Diwan",
       "Personnel and Officers Affairs of the Royal Guard",
       "Royal Clinic",
       "Royal Palaces - Domestic and Abroad",
       "Ministry of Commerce",
-      "Supreme Council for Petroleum and Minerals",
       "Jeddah Governorate Police",
       "Saudi Arabian Airlines (Saudia)",
-      "Office of the Minister of Defense",
       "Security Affairs - Makkah Al-Mukarramah Region Emirate",
       "Jeddah Municipal Council",
       "Islamic University of Madinah",

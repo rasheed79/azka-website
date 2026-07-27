@@ -62,7 +62,7 @@ export default function Footer({ locale }: FooterProps) {
             <div className="mb-5">
               <Image
                 src="/logo-white.png"
-                alt="أزكى لتقنية المعلومات"
+                alt="أزكى الوطنية لتقنية المعلومات"
                 width={150}
                 height={44}
                 className="h-11 w-auto object-contain brightness-0 dark:brightness-100"

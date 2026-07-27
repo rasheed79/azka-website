@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Building2, Crown, Landmark, Plane, GraduationCap, Shield, Scale } from 'lucide-react';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection';
+import arMessages from '@/messages/ar.json';
+
+const AR_CLIENT_NAMES = arMessages.clients.list;
 
 function getIcon(name: string) {
   if (name.includes('ملكي') || name.includes('Royal') || name.includes('Crown') || name.includes('Prince') || name.includes('سمو') || name.includes('ديوان') || name.includes('عيادة') || name.includes('قصور')) return Crown;
@@ -73,9 +76,9 @@ export default function Clients() {
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
           staggerDelay={0.04}
         >
-          {list.map((client: string) => {
+          {list.map((client: string, index: number) => {
             const Icon = getIcon(client);
-            const logoFile = LOGO_MAP[client];
+            const logoFile = LOGO_MAP[AR_CLIENT_NAMES[index]];
             const logoSrc = logoFile ? `/images/لوجو العملاء/${logoFile}` : null;
 
             return (

@@ -1,8 +1,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Azka for Information Technology",
-  "alternateName": "أزكى لتقنية المعلومات",
+  "name": "Azka National for Information Technology",
+  "alternateName": "أزكى الوطنية لتقنية المعلومات",
   "url": "https://www.azka.com",
   "email": "connect@azka.com",
   "telephone": "+966503495776",
@@ -14,5 +14,5 @@
     "addressCountry": "SA"
   },
   "foundingDate": "1989",
-  "description": "Azka for Information Technology provides planning, design, building, and management of automated systems in Saudi Arabia."
+  "description": "Azka National for Information Technology provides planning, design, building, and management of automated systems in Saudi Arabia."
 }

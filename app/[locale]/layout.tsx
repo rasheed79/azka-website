@@ -38,7 +38,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'hero' });
 
   const isAr = locale === 'ar';
-  const title = isAr ? 'أزكى لتقنية المعلومات | Azka IT' : 'Azka for Information Technology';
+  const title = isAr ? 'أزكى الوطنية لتقنية المعلومات | Azka IT' : 'Azka National for Information Technology';
   const description = t('subtitle');
 
   return {
@@ -47,7 +47,7 @@ export async function generateMetadata({
     keywords: isAr
       ? ['أزكى', 'تقنية المعلومات', 'أنظمة آلية', 'موارد بشرية', 'جدة', 'السعودية']
       : ['Azka', 'Information Technology', 'Automated Systems', 'HR', 'Jeddah', 'Saudi Arabia'],
-    authors: [{ name: 'Azka for Information Technology' }],
+    authors: [{ name: 'Azka National for Information Technology' }],
     openGraph: {
       title,
       description,

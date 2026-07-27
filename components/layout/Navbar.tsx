@@ -81,7 +81,7 @@ export default function Navbar({ locale }: NavbarProps) {
             <Link href="/" className="flex items-center group flex-shrink-0">
               <Image
                 src="/logo-white.png"
-                alt="أزكى لتقنية المعلومات"
+                alt="أزكى الوطنية لتقنية المعلومات"
                 width={110}
                 height={32}
                 className="h-8 w-auto object-contain brightness-0 dark:brightness-100 group-hover:opacity-85 transition-opacity"
