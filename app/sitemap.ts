@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const locales = ['ar', 'en'];
 
   const homePages = locales.map((locale) => ({
-    url: `${BASE_URL}/${locale}`,
+    url: `${BASE_URL}/${locale}/`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 1,
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const systemPages = locales.flatMap((locale) =>
     systemSlugs.map((slug) => ({
-      url: `${BASE_URL}/${locale}/systems/${slug}`,
+      url: `${BASE_URL}/${locale}/systems/${slug}/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,

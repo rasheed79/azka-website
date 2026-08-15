@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -23,6 +24,45 @@ export async function generateStaticParams() {
   return locales.flatMap((locale) =>
     systemSlugs.map((slug) => ({ locale, slug }))
   );
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+
+  if (!systemSlugs.includes(slug as SystemSlug)) {
+    return {};
+  }
+
+  const tDetails = await getTranslations({ locale, namespace: `systems.details.${slug}` });
+  const isAr = locale === 'ar';
+  const brand = isAr ? 'أزكى الوطنية لتقنية المعلومات' : 'Azka National for Information Technology';
+  const title = `${tDetails('name')} | ${brand}`;
+  const description = tDetails('description');
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: isAr ? 'ar_SA' : 'en_US',
+      siteName: 'Azka IT',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+    alternates: {
+      canonical: `/${locale}/systems/${slug}/`,
+      languages: {
+        ar: `/ar/systems/${slug}/`,
+        en: `/en/systems/${slug}/`,
+        'x-default': `/ar/systems/${slug}/`,
+      },
+    },
+  };
 }
 
 export default async function SystemPage({ params }: PageProps) {

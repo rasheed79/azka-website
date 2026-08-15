@@ -42,6 +42,7 @@ export async function generateMetadata({
   const description = t('subtitle');
 
   return {
+    metadataBase: new URL('https://www.azka.com'),
     title,
     description,
     keywords: isAr
@@ -61,9 +62,11 @@ export async function generateMetadata({
       description,
     },
     alternates: {
+      canonical: `/${locale}/`,
       languages: {
-        ar: '/ar',
-        en: '/en',
+        ar: '/ar/',
+        en: '/en/',
+        'x-default': '/ar/',
       },
     },
   };
