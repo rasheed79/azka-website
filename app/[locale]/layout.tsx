@@ -12,6 +12,8 @@ import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/chatbot/ChatWidget';
 import ThemeHydrationSync from '@/components/ThemeHydrationSync';
 
+const CF_BEACON_TOKEN = 'c924ec7d64c843e58e25113881462c67';
+
 const notoKufiArabic = Noto_Kufi_Arabic({
   subsets: ['arabic'],
   variable: '--font-arabic',
@@ -104,6 +106,11 @@ export default async function LocaleLayout({
           rel="alternate"
           type="application/ld+json"
           href="/schema/organization.json"
+        />
+        <script
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token": "${CF_BEACON_TOKEN}"}`}
         />
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
