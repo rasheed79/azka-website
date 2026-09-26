@@ -13,7 +13,7 @@ export default function Hero() {
   const tStats = useTranslations('stats');
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-dvh flex items-center justify-center overflow-hidden pt-20">
       {/* Photography background */}
       <div className="absolute inset-0" aria-hidden>
         <Image
