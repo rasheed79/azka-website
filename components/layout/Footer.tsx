@@ -141,7 +141,7 @@ export default function Footer({ locale }: FooterProps) {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-green-400 flex-shrink-0" />
-                <a href="tel:+96612600223" className="text-slate-600 hover:text-green-900 dark:text-slate-400 dark:hover:text-white text-sm transition-colors" dir="ltr">
+                <a href="tel:+966552554570" className="text-slate-600 hover:text-green-900 dark:text-slate-400 dark:hover:text-white text-sm transition-colors" dir="ltr">
                   {tContact('info_phone')}
                 </a>
               </li>
