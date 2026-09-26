@@ -11,6 +11,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ChatWidget from '@/components/chatbot/ChatWidget';
 import ThemeHydrationSync from '@/components/ThemeHydrationSync';
+import organizationSchema from '@/public/schema/organization.json';
 
 const CF_BEACON_TOKEN = 'c924ec7d64c843e58e25113881462c67';
 
@@ -102,10 +103,9 @@ export default async function LocaleLayout({
       style={{ scrollBehavior: 'smooth', fontFamily: isRtl ? 'var(--font-arabic)' : 'var(--font-inter)' }}
     >
       <head>
-        <link
-          rel="alternate"
+        <script
           type="application/ld+json"
-          href="/schema/organization.json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <script
           type="module"

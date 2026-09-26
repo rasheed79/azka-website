@@ -2,8 +2,16 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Azka National for Information Technology",
-  "alternateName": "أزكى الوطنية لتقنية المعلومات",
+  "alternateName": [
+    "أزكى الوطنية لتقنية المعلومات",
+    "أزكى",
+    "ازكا",
+    "Azka",
+    "Azka IT",
+    "Azka Computer"
+  ],
   "url": "https://www.azka.com",
+  "logo": "https://www.azka.com/logo.png",
   "email": "connect@azka.com",
   "telephone": "+966503495776",
   "address": {
