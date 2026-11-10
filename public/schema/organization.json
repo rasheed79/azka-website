@@ -22,5 +22,6 @@
     "addressCountry": "SA"
   },
   "foundingDate": "1989",
-  "description": "Azka National for Information Technology provides planning, design, building, and management of automated systems in Saudi Arabia."
+  "description": "Azka National for Information Technology provides planning, design, building, and management of automated systems in Saudi Arabia.",
+  "sameAs": ["https://x.com/AzkaNational"]
 }

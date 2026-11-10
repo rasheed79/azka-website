@@ -58,11 +58,13 @@ export async function generateMetadata({
       type: 'website',
       locale: isAr ? 'ar_SA' : 'en_US',
       siteName: 'Azka IT',
+      images: ['/og-image.jpg'],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['/og-image.jpg'],
     },
     alternates: {
       canonical: `/${locale}/`,
